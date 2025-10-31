@@ -43,7 +43,7 @@ public class BirdBehavior : MonoBehaviour
     {
         if (isDead == false) 
         { 
-            //score++;
+            score++;
             Debug.Log("Score: " + score);
         }
     }
