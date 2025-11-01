@@ -13,7 +13,7 @@ public class ObstacleBehavior : MonoBehaviour
     
     public BirdBehavior classbird;
 
-    public float slowDown=0.000005f;
+    public float slowDown=0.00002f;
     
 
     void Start()
@@ -34,7 +34,8 @@ public class ObstacleBehavior : MonoBehaviour
     void Update()
     {
         Vector3 currentPosition = transform.position;
-        currentPosition.x += speed; 
+        currentPosition.x += speed;
+        //currentPosition.x = currentPosition.x + speed;
         transform.position = currentPosition;
 
         if (transform.position.x <= outOfScreenPositon)

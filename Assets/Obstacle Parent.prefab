@@ -267,9 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0161a40d1bfa470488412b058fd129f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classbird: {fileID: 0}
+  birdObject: {fileID: 0}
   speed: -0.01
   outOfScreenPositon: -11
+  classbird: {fileID: 0}
+  slowDown: 0.00002
 --- !u!65 &3647683500234895509
 BoxCollider:
   m_ObjectHideFlags: 0
