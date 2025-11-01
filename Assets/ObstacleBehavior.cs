@@ -4,15 +4,19 @@ using Random = UnityEngine.Random;
 
 public class ObstacleBehavior : MonoBehaviour
 {
-    public BirdBehavior classbird;
+   
 
     public GameObject birdObject;
     
     public float speed;
     public float outOfScreenPositon;
     
+    public BirdBehavior classbird;
 
-    void start()
+    public float slowDown=0.000005f;
+    
+
+    void Start()
     {
         birdObject = GameObject.FindWithTag("Bird");
 
@@ -47,7 +51,11 @@ public class ObstacleBehavior : MonoBehaviour
         if (classbird != null && classbird.isDead == true)
         {
             Debug.Log("lmao");
-            speed += 0.0005f;
+            if (speed < 0)
+            {
+                speed += slowDown;    
+            }
+            
         }
     }
 }
