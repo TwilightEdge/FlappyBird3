@@ -83,7 +83,7 @@ public class ObstacleSpawner : MonoBehaviour
     void SpawnNewObstacle()
     {
         randomNumber = Random.Range(1, 6);
-        Debug.Log(randomNumber);
+        //Debug.Log(randomNumber);
         if(randomNumber == 1 && newObstacle1.transform.position.x<-11)  newObstacle1.transform.position = new Vector3(spawnAtXPosition, Random.Range(minYPosition,maxYPosition), 0);
         else if(randomNumber == 2 && newObstacle2.transform.position.x<-11)  newObstacle2.transform.position = new Vector3(spawnAtXPosition, Random.Range(minYPosition,maxYPosition), 0);
         else if(randomNumber == 3 && newObstacle3.transform.position.x<-11)  newObstacle3.transform.position = new Vector3(spawnAtXPosition, Random.Range(minYPosition,maxYPosition), 0);

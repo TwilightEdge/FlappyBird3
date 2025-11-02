@@ -7,6 +7,7 @@ public class BirdBehavior : MonoBehaviour
     
     Rigidbody rigidBodyReference;
     public float force = 10;
+    public float rotationSpeed = 1;
     //bool isDead;
     int score;
 
@@ -18,10 +19,14 @@ public class BirdBehavior : MonoBehaviour
 
     void Update()
     {
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -90f), rotationSpeed * Time.deltaTime);
+        
         if (Input.GetKeyDown(KeyCode.Space) && isDead == false)
         {
             rigidBodyReference.linearVelocity = Vector3.zero;
             rigidBodyReference.AddForce(Vector3.up * force);
+            
+            transform.rotation = Quaternion.Euler(0, 0, 35f);
         }
 
         if (Input.GetKeyDown(KeyCode.R))

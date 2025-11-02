@@ -51,7 +51,7 @@ public class ObstacleBehavior : MonoBehaviour
         
         if (classbird != null && classbird.isDead)
         {
-            Debug.Log("lmao");
+            //Debug.Log("lmao");
             if (speed < 0)
             {
                 speed += slowDown;    
