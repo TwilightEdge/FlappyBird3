@@ -1,8 +1,15 @@
+using UnityEditor.Scripting;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
+    private int randomNumber;
+    public GameObject obstaclePrefab1;
+    public GameObject obstaclePrefab2;
+    public GameObject obstaclePrefab3;
+
+    private GameObject newObstacle;
+    
     public float timeBetweenObstacles;
     public float spawnAtXPosition;
     public float minYPosition;
@@ -17,9 +24,9 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Start()
     {
-        //SpawnNewObstacle();
-        GameObject newObstacle = Instantiate(obstaclePrefab);
-        newObstacle.transform.position = new Vector3(9 ,Random.Range(minYPosition,maxYPosition) , 0);
+        SpawnNewObstacle();
+        //GameObject newObstacle = Instantiate(obstaclePrefab1);
+        //newObstacle.transform.position = new Vector3(9 ,Random.Range(minYPosition,maxYPosition) , 0);
         
         birdObject2 = GameObject.FindWithTag("Bird");
 
@@ -49,7 +56,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnNewObstacle()
     {
-        GameObject newObstacle = Instantiate(obstaclePrefab);
+        randomNumber = Random.Range(1, 3);
+        Debug.Log(randomNumber);
+        if(randomNumber == 1)  newObstacle = Instantiate(obstaclePrefab1);
+        else if(randomNumber == 2) newObstacle = Instantiate(obstaclePrefab2);
+        else if(randomNumber == 3)  newObstacle = Instantiate(obstaclePrefab3);
+        
         newObstacle.transform.position = 
             new Vector3(
                 spawnAtXPosition,                           //x
