@@ -5,6 +5,9 @@ public class BirdBehavior : MonoBehaviour
 {
     public bool isDead = false;
     
+    public AudioSource audioSource;    // drag AudioSource here in Inspector
+    public AudioClip jumpSound;
+    
     Rigidbody rigidBodyReference;
     public float force = 10;
     public float rotationSpeed = 1;
@@ -27,6 +30,7 @@ public class BirdBehavior : MonoBehaviour
             rigidBodyReference.AddForce(Vector3.up * force);
             
             transform.rotation = Quaternion.Euler(0, 0, 35f);
+            audioSource.PlayOneShot(jumpSound);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
