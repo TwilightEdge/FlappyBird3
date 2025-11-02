@@ -1,4 +1,4 @@
-using UnityEditor.Scripting;
+
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
@@ -44,12 +44,12 @@ public class ObstacleSpawner : MonoBehaviour
         newObstacle5 = Instantiate(obstaclePrefab5);
         newObstacle6 = Instantiate(obstaclePrefab6);
         
-        newObstacle1.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
-        newObstacle2.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
-        newObstacle3.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
-        newObstacle4.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
-        newObstacle5.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
-        newObstacle6.transform.position = new Vector3(-15, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle1.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle2.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle3.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle4.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle5.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
+        newObstacle6.transform.position = new Vector3(-18, Random.Range(minYPosition,maxYPosition), 0);
         
         SpawnNewObstacle();
         

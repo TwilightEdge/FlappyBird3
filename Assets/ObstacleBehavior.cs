@@ -3,12 +3,12 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ObstacleBehavior : MonoBehaviour
-{
-   
+{ 
+    float speed = -0.005f;
 
     public GameObject birdObject;
     
-    public float speed;
+    
     public float outOfScreenPositon;
     
     public BirdBehavior classbird;
