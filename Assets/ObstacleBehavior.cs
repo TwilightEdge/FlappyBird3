@@ -35,21 +35,21 @@ public class ObstacleBehavior : MonoBehaviour
     {
         Vector3 currentPosition = transform.position;
         currentPosition.x += speed;
-        //currentPosition.x = currentPosition.x + speed;
+        
         transform.position = currentPosition;
 
-        if (transform.position.x <= outOfScreenPositon)
-        {
+        //if (transform.position.x <= outOfScreenPositon)
+        //{
             //Destroy(gameObject);
             
             //transform.position = new Vector3(spawnAtXPosition, Random.Range(minYPosition,maxYPosition), 0); 
             
             
-            transform.position = new Vector3(11 ,Random.Range(-2 ,4) , 0);
+            //transform.position = new Vector3(11 ,Random.Range(-2 ,4) , 0);
             
-        }
-        //classbird != null && 
-        if (classbird != null && classbird.isDead == true)
+        //}
+        
+        if (classbird != null && classbird.isDead)
         {
             Debug.Log("lmao");
             if (speed < 0)
