@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class ObstacleBehavior : MonoBehaviour
 { 
-    float speed = -0.005f;
+    float speed = -0.01f;
 
     public GameObject birdObject;
     
