@@ -8,6 +8,9 @@ public class cat : MonoBehaviour
     
     public float speed = 0.05f;
     public float dashForce = 1000f;
+
+    private bool dashing;
+    public float endOfDash = 1f;
     
     private Vector2 movementInput;
     
@@ -27,7 +30,13 @@ public class cat : MonoBehaviour
         {
             rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
             //rigidBodyReference.AddForce(Vector3.up * dashForce);
+            
+            dashing = true;
+            
         }
+        
+        checkDashing();
+        
     }
     
     void FixedUpdate()
@@ -50,7 +59,7 @@ public class cat : MonoBehaviour
             //audioSource.PlayOneShot(jumpSound);
         }*/
         
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && !dashing)
         {
             Vector3 currentPosition = transform.position;
             currentPosition.y -= speed;
@@ -62,7 +71,7 @@ public class cat : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0, 0, 90);
         }
         
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && !dashing)
         {
             Vector3 currentPosition = transform.position;
             currentPosition.y += speed;
@@ -74,7 +83,7 @@ public class cat : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0, 0, -90);
         }
         
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !dashing)
         {
             Vector3 currentPosition = transform.position;
             currentPosition.x += speed;
@@ -90,7 +99,7 @@ public class cat : MonoBehaviour
             //audioSource.PlayOneShot(jumpSound);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !dashing)
         {
             Vector3 currentPosition = transform.position;
             currentPosition.x -= speed;
@@ -106,4 +115,13 @@ public class cat : MonoBehaviour
         }
         
     }
+
+    void checkDashing()
+    {
+        if (Mathf.Abs(rigidBodyReference.linearVelocity.x) <= endOfDash && Mathf.Abs(rigidBodyReference.linearVelocity.y) <= endOfDash)
+        {
+            dashing = false;
+        }
+    }
+    
 }

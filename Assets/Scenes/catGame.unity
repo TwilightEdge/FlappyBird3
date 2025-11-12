@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   dashForce: 17
+  endOfDash: 5
 --- !u!212 &743309153
 SpriteRenderer:
   m_ObjectHideFlags: 0
