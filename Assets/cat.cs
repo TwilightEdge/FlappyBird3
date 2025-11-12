@@ -22,6 +22,10 @@ public class cat : MonoBehaviour
     
     private Vector2 movementInput;
     
+    
+    public int HP;
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -170,6 +174,12 @@ public class cat : MonoBehaviour
         //rigidBodyReference.AddForce(Vector3.up * dashForce);
             
         dashing = true;
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        HP--;
+        Debug.Log("HP: " + HP);
     }
     
 }
