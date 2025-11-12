@@ -11,6 +11,9 @@ public class cat : MonoBehaviour
 
     private bool dashing;
     public float endOfDash = 1f;
+
+    private float timeSinceLastDash = 5;
+    public float dashTimer;
     
     private Vector2 movementInput;
     
@@ -26,17 +29,20 @@ public class cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && timeSinceLastDash>dashTimer)
         {
+            timeSinceLastDash = 0;
+            
             rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
             //rigidBodyReference.AddForce(Vector3.up * dashForce);
             
             dashing = true;
             
+            
         }
         
         checkDashing();
-        
+        timePass();
     }
     
     void FixedUpdate()
@@ -122,6 +128,11 @@ public class cat : MonoBehaviour
         {
             dashing = false;
         }
+    }
+
+    void timePass()
+    {
+        timeSinceLastDash += Time.deltaTime;
     }
     
 }
