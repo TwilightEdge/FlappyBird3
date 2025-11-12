@@ -175,11 +175,26 @@ public class cat : MonoBehaviour
             
         dashing = true;
     }
-    
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        HP--;
-        Debug.Log("HP: " + HP);
+        // The core line you need:
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            HP--;
+            Debug.Log("HP: " + HP);
+            CheckHP();
+        }
     }
-    
+
+    void CheckHP()
+    {
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
 }
