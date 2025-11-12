@@ -4,6 +4,9 @@ using UnityEngine;
 public class cat : MonoBehaviour
 {
     
+    public GameObject attack;
+    private GameObject attackSpawn;
+    
     Rigidbody2D rigidBodyReference;
     
     public float speed = 0.05f;
@@ -13,7 +16,9 @@ public class cat : MonoBehaviour
     public float endOfDash = 1f;
 
     private float timeSinceLastDash = 5;
+    private float timeSinceLastAttack = 5;
     public float dashTimer;
+    public float attackTimer;
     
     private Vector2 movementInput;
     
@@ -21,9 +26,6 @@ public class cat : MonoBehaviour
     void Start()
     {
         rigidBodyReference = gameObject.GetComponent<Rigidbody2D>();
-        //rigidBodyReference = GetComponent<Rigidbody2D>();
-        
-        
     }
 
     // Update is called once per frame
@@ -31,15 +33,16 @@ public class cat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && timeSinceLastDash>dashTimer)
         {
-            timeSinceLastDash = 0;
-            
-            rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
-            //rigidBodyReference.AddForce(Vector3.up * dashForce);
-            
-            dashing = true;
-            
-            
+            Dash();
         }
+        
+        if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack>attackTimer)
+        {
+
+            Attack();
+
+        }
+        
         
         checkDashing();
         timePass();
@@ -133,6 +136,40 @@ public class cat : MonoBehaviour
     void timePass()
     {
         timeSinceLastDash += Time.deltaTime;
+        timeSinceLastAttack += Time.deltaTime;
+    }
+
+    void Attack()
+    {
+        timeSinceLastAttack = 0;    
+        
+        attackSpawn = Instantiate(attack);
+    
+        attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+movementInput;
+        if (movementInput == new Vector2(1, 0))
+        {
+            attackSpawn.transform.rotation = Quaternion.Euler (0,0,0);
+        }
+        else if (movementInput == new Vector2(0, 1))
+        {
+            attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
+        }
+        else if (movementInput == new Vector2(0, -1))
+        {
+            attackSpawn.transform.rotation = Quaternion.Euler (0,0,-90);
+        }
+        Destroy(attackSpawn, 0.1f);
+    
+    }
+
+    void Dash()
+    {
+        timeSinceLastDash = 0;
+            
+        rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
+        //rigidBodyReference.AddForce(Vector3.up * dashForce);
+            
+        dashing = true;
     }
     
 }
