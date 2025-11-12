@@ -25,11 +25,19 @@ public class cat : MonoBehaviour
     
     public int HP;
     
+    public int maxHP;
+
+    public int food;
+
+    public int cuteness;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBodyReference = gameObject.GetComponent<Rigidbody2D>();
+
+        food = 0;
     }
 
     // Update is called once per frame
@@ -48,12 +56,15 @@ public class cat : MonoBehaviour
         }
         
         
-        checkDashing();
-        timePass();
+        
+        
     }
     
     void FixedUpdate()
     {
+        timePass();
+        checkDashing();
+        
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             //Vector3 currentPosition = transform.position;
@@ -193,6 +204,11 @@ public class cat : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void getFood(int gainedFood)
+    {
+        food = food + gainedFood;
     }
 
 
