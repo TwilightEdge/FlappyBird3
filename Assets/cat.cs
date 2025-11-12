@@ -50,6 +50,30 @@ public class cat : MonoBehaviour
             //audioSource.PlayOneShot(jumpSound);
         }*/
         
+        if (Input.GetKey(KeyCode.S))
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.y -= speed;
+
+            transform.position = currentPosition;
+            
+            movementInput= new Vector2(0, -1);
+            
+            //transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        
+        if (Input.GetKey(KeyCode.W))
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.y += speed;
+
+            transform.position = currentPosition;
+            
+            movementInput= new Vector2(0, 1);
+            
+            //transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        
         if (Input.GetKey(KeyCode.D))
         {
             Vector3 currentPosition = transform.position;
@@ -81,30 +105,5 @@ public class cat : MonoBehaviour
             
         }
         
-        if (Input.GetKey(KeyCode.W))
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.y += speed;
-
-            transform.position = currentPosition;
-            
-            movementInput= new Vector2(0, 1);
-            
-            //transform.rotation = Quaternion.Euler(0, 0, -90);
-        }
-        
-        
-        if (Input.GetKey(KeyCode.S))
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.y -= speed;
-
-            transform.position = currentPosition;
-            
-            movementInput= new Vector2(0, -1);
-            
-            //transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-
     }
 }
