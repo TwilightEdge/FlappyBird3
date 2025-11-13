@@ -354,6 +354,7 @@ MonoBehaviour:
   food: 0
   cuteness: 5
   passiveCuteness: 5
+  damage: 3
 --- !u!212 &743309153
 SpriteRenderer:
   m_ObjectHideFlags: 0

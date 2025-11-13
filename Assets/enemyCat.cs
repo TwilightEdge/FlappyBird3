@@ -52,7 +52,7 @@ public class enemyCat : MonoBehaviour
         
         if (other.CompareTag("playerAttack"))
         {
-            
+            HP -= classcat.damage;
             CheckHP();
             
         }
@@ -63,7 +63,7 @@ public class enemyCat : MonoBehaviour
     {
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // or whatever on enemy death
         }
     }
     
