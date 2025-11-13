@@ -188,6 +188,7 @@ public class cat : MonoBehaviour
         dashing = true;
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // The core line you need:
@@ -197,6 +198,16 @@ public class cat : MonoBehaviour
             Debug.Log("HP: " + HP);
             CheckHP();
         }
+    }
+    */
+
+    public void takeDamage(int damage)
+    {
+       HP -= damage; 
+       
+       Debug.Log("HP: " + HP);
+       
+       CheckHP();
     }
 
     void CheckHP()

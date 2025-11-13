@@ -964,6 +964,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 9
+  cat: {fileID: 743309151}
+  classcat: {fileID: 0}
+  timeSinceLastAttack: 2
+  attackCD: 2
+  damage: 1
 --- !u!61 &1603514054
 BoxCollider2D:
   m_ObjectHideFlags: 0
