@@ -970,6 +970,7 @@ MonoBehaviour:
   timeSinceLastAttack: 2
   attackCD: 2
   damage: 1
+  enemySpeed: 3
 --- !u!61 &1603514054
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -15,10 +15,15 @@ public class enemyCat : MonoBehaviour
 
     public int damage;
     
+    private Rigidbody2D enemyRigidbody;
+
+    public float enemySpeed;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         classcat = cat.GetComponent<cat>();
+        enemyRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class enemyCat : MonoBehaviour
     {
         
         timePass();
+        FollowPlayer();
         
     }
 
@@ -72,6 +78,14 @@ public class enemyCat : MonoBehaviour
         timeSinceLastAttack += Time.deltaTime;
         
     }
-    
+
+    void FollowPlayer()
+    {
+        
+        Vector2 directionToPlayer = cat.transform.position - transform.position;
+
+        enemyRigidbody.linearVelocity = directionToPlayer.normalized * enemySpeed;
+
+    }
     
 }
