@@ -297,11 +297,20 @@ MonoBehaviour:
   cat: {fileID: 743309151}
   playerIsInside: 0
   classcat: {fileID: 0}
-  foodCount: 3
+  foodCount: 10
   food: 1
-  foodTimer: 10
+  foodTimer: 30
   cutenessReq: 5
   cutenessIncrease: 3
+  mewPlusCuteness: 1
+  mewMaxStacks: 1
+  mewCounter: 0
+  eyePlusCuteness: 2
+  eyeMaxStacks: 1
+  eyeCounter: 0
+  rubPlusCuteness: 3
+  rubMaxStacks: 1
+  rubCounter: 0
 --- !u!1 &743309151
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +353,7 @@ MonoBehaviour:
   maxHP: 9
   food: 0
   cuteness: 5
+  passiveCuteness: 5
 --- !u!212 &743309153
 SpriteRenderer:
   m_ObjectHideFlags: 0

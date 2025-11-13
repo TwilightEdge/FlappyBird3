@@ -31,6 +31,7 @@ public class cat : MonoBehaviour
 
     public int cuteness;
     
+    public int passiveCuteness;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -211,6 +212,9 @@ public class cat : MonoBehaviour
         food = food + gainedFood;
     }
 
-
+    public void cutenessReset()
+    {
+        cuteness = passiveCuteness;
+    }
 
 }
