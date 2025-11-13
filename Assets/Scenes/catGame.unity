@@ -968,9 +968,14 @@ MonoBehaviour:
   cat: {fileID: 743309151}
   classcat: {fileID: 0}
   timeSinceLastAttack: 2
+  timeSinceLastDash: 0
+  dashCD: 3
   attackCD: 2
   damage: 1
-  enemySpeed: 3
+  enemySpeed: 2
+  enemyDashForce: 30
+  isDashing: 0
+  endOfDash: 5
 --- !u!61 &1603514054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1085,7 +1090,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 12
+  m_LinearDamping: 8
   m_AngularDamping: 0.04
   m_GravityScale: 0
   m_Material: {fileID: 0}

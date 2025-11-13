@@ -11,6 +11,10 @@ public class enemyCat : MonoBehaviour
 
     public float timeSinceLastAttack;
     
+    public float timeSinceLastDash;
+    
+    public float dashCD;
+    
     public float attackCD;
 
     public int damage;
@@ -18,6 +22,12 @@ public class enemyCat : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     public float enemySpeed;
+
+    public float enemyDashForce;
+
+    public bool isDashing;
+
+    public float endOfDash;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +46,10 @@ public class enemyCat : MonoBehaviour
     {
         
         timePass();
-        FollowPlayer();
+        
+        CheckDash();
+        
+        if(!isDashing) FollowPlayer();
         
     }
 
@@ -77,6 +90,8 @@ public class enemyCat : MonoBehaviour
     {
         timeSinceLastAttack += Time.deltaTime;
         
+        timeSinceLastDash +=  Time.deltaTime;
+        
     }
 
     void FollowPlayer()
@@ -86,6 +101,32 @@ public class enemyCat : MonoBehaviour
 
         enemyRigidbody.linearVelocity = directionToPlayer.normalized * enemySpeed;
 
+    }
+
+    void Dash()
+    {
+        isDashing = true;
+        
+        Vector2 directionToPlayer = cat.transform.position - transform.position;
+        
+        enemyRigidbody.AddForce(directionToPlayer.normalized * enemyDashForce, ForceMode2D.Impulse);
+        
+        
+        
+    }
+
+    void CheckDash() //can dash and end of dash
+    {
+        if (Mathf.Abs(enemyRigidbody.linearVelocity.x) <= endOfDash && Mathf.Abs(enemyRigidbody.linearVelocity.y) <= endOfDash)
+        {
+            isDashing = false;
+        }
+        
+        if(timeSinceLastDash>=dashCD)
+        {
+            timeSinceLastDash = 0;
+            Dash();
+        }
     }
     
 }
