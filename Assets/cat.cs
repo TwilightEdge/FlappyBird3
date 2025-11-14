@@ -20,7 +20,7 @@ public class cat : MonoBehaviour
     public float dashTimer;
     public float attackTimer;
     
-    private Vector2 movementInput;
+    private Vector2 movementInput = new Vector2(-1, 0);
     
     
     public int HP;
@@ -37,13 +37,22 @@ public class cat : MonoBehaviour
 
     public float knockbackPower;
     
-    [SerializeField] private Animator animator;
+    //[SerializeField] private Animator animator;
+    
+    private Animator animator;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBodyReference = gameObject.GetComponent<Rigidbody2D>();
-
+        
+        animator = GetComponent<Animator>();
+        
+        if (animator == null)
+        {
+            Debug.LogError("Animator component missing on the Cat GameObject!");
+        }
+        
         food = 0;
     }
 
@@ -171,6 +180,12 @@ public class cat : MonoBehaviour
 
     void Attack()
     {
+        //animator.SetBool("isRunning", false);
+        
+        //animator.SetBool("isAttacking", true);
+        
+        animator.SetTrigger("attack");
+        
         timeSinceLastAttack = 0;    
         
         attackSpawn = Instantiate(attack);
@@ -180,20 +195,22 @@ public class cat : MonoBehaviour
         if (movementInput == new Vector2(1, 0))
         {
             attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
-            attackSpawn.transform.rotation = Quaternion.Euler (0,0,0);
+            attackSpawn.transform.rotation = Quaternion.Euler (0,180,0);
         }
         else if (movementInput == new Vector2(0, 1))
         {
             attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+movementInput;
-            attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
+            attackSpawn.transform.rotation = Quaternion.Euler (0,0,-90);
         }
         else if (movementInput == new Vector2(0, -1))
         {
-            attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+movementInput;
-            attackSpawn.transform.rotation = Quaternion.Euler (0,0,-90);
+            attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
+            attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
         }
-        Destroy(attackSpawn, 0.1f);
-    
+        Destroy(attackSpawn, 0.2f);
+        
+        Invoke("setIsAttackingWithDelay", 0.1f);
+        
     }
 
     void Dash()
@@ -244,6 +261,11 @@ public class cat : MonoBehaviour
     public void cutenessReset()
     {
         cuteness = passiveCuteness;
+    }
+
+    private void setIsAttackingWithDelay()
+    {
+        //animator.SetBool("isAttacking", false);
     }
 
 }
