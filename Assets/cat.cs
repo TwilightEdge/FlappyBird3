@@ -37,6 +37,8 @@ public class cat : MonoBehaviour
 
     public float knockbackPower;
     
+    [SerializeField] private Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -88,6 +90,8 @@ public class cat : MonoBehaviour
             //audioSource.PlayOneShot(jumpSound);
         }*/
         
+        animator.SetBool("isRunning", false); // if no button is pressed it becomes false
+        
         if (Input.GetKey(KeyCode.S) && !dashing)
         {
             Vector3 currentPosition = transform.position;
@@ -96,6 +100,8 @@ public class cat : MonoBehaviour
             transform.position = currentPosition;
             
             movementInput= new Vector2(0, -1);
+            
+            animator.SetBool("isRunning", true);
             
             //transform.rotation = Quaternion.Euler(0, 0, 90);
         }
@@ -109,7 +115,7 @@ public class cat : MonoBehaviour
             
             movementInput= new Vector2(0, 1);
             
-            //transform.rotation = Quaternion.Euler(0, 0, -90);
+            animator.SetBool("isRunning", true);
         }
         
         if (Input.GetKey(KeyCode.D) && !dashing)
@@ -126,8 +132,10 @@ public class cat : MonoBehaviour
             
             transform.rotation = Quaternion.Euler(0, 180, 0);
             //audioSource.PlayOneShot(jumpSound);
+            
+            animator.SetBool("isRunning", true);
         }
-
+        
         if (Input.GetKey(KeyCode.A) && !dashing)
         {
             Vector3 currentPosition = transform.position;
@@ -139,9 +147,11 @@ public class cat : MonoBehaviour
             
             transform.rotation = Quaternion.Euler(0, 0, 0);
             
-            
+            animator.SetBool("isRunning", true);
             
         }
+        
+        
         
     }
 

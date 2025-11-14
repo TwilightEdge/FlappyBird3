@@ -143,6 +143,7 @@ MonoBehaviour:
   passiveCuteness: 5
   damage: 1
   knockbackPower: 20
+  animator: {fileID: 1943494844785935971}
 --- !u!61 &6020713550126522987
 BoxCollider2D:
   m_ObjectHideFlags: 0
