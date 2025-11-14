@@ -186,22 +186,26 @@ public class cat : MonoBehaviour
         timeSinceLastAttack = 0;    
         
         attackSpawn = Instantiate(attack);
+        
+        attackSpawn.transform.SetParent(this.transform);
     
+        //attackSpawn.transform.position = new Vector2(transform.position.x , transform.position.y)+(movementInput*0.8f);
+        
         attackSpawn.transform.position = new Vector2(transform.position.x , transform.position.y)+(movementInput*0.8f);
         
         if (movementInput == new Vector2(1, 0))
         {
-            attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
+            attackSpawn.transform.position = new Vector2(transform.position.x , transform.position.y)+(movementInput*0.8f);
             attackSpawn.transform.rotation = Quaternion.Euler (0,180,0);
         }
         else if (movementInput == new Vector2(0, 1))
         {
-            attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+movementInput;
+            attackSpawn.transform.position = new Vector2(transform.position.x , transform.position.y)+(movementInput);
             attackSpawn.transform.rotation = Quaternion.Euler (0,0,-90);
         }
         else if (movementInput == new Vector2(0, -1))
         {
-            attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
+            attackSpawn.transform.position = new Vector2(transform.position.x , transform.position.y)+(movementInput*0.8f);
             attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
         }
         Destroy(attackSpawn, 0.15f);
