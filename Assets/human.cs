@@ -75,6 +75,8 @@ public class human : MonoBehaviour
         
         if (foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
         {
+            classcat.catEyeAnimation();
+            
             timeSinceLastEmote = 0;
 
             if (eyeCounter < eyeMaxStacks)

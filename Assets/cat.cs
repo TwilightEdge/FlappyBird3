@@ -40,6 +40,8 @@ public class cat : MonoBehaviour
     //[SerializeField] private Animator animator;
     
     private Animator animator;
+
+    public bool emoting;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,23 +56,26 @@ public class cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && timeSinceLastDash>dashTimer)
-        {
-            Dash();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack>attackTimer)
+        if (!emoting)
         {
 
-            //Attack();
-            animator.SetTrigger("attack");
-            Invoke("Attack", 0.15f);
+            if (Input.GetKeyDown(KeyCode.Space) && timeSinceLastDash > dashTimer)
+            {
+                Dash();
+            }
+
+            if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack > attackTimer)
+            {
+
+                //Attack();
+                animator.SetTrigger("attack");
+                Invoke("Attack", 0.15f);
+
+            }
 
         }
-        
-        
-        
-        
+
+
     }
     
     void FixedUpdate()
@@ -78,86 +83,31 @@ public class cat : MonoBehaviour
         timePass();
         checkDashing();
         
+        animator.SetBool("isRunning", false); // if no button is pressed it becomes false
+
+        if (!emoting)
+        {
+            Movement();
+        }
+
+
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             //Vector3 currentPosition = transform.position;
             //currentPosition.x += dashSpeed;
-        
+
             //transform.position = currentPosition;
-            
-            
+
+
             //rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
             rigidBodyReference.AddForce(new Vector2(1, 0) * dashForce, ForceMode2D.Impulse);
-            
+
             //rigidBodyReference.linearVelocity = Vector3.zero;
             //rigidBodyReference.AddForce(Vector3.up * force);
-            
+
             //transform.rotation = Quaternion.Euler(0, 0, 35f);
             //audioSource.PlayOneShot(jumpSound);
         }*/
-        
-        animator.SetBool("isRunning", false); // if no button is pressed it becomes false
-        
-        if (Input.GetKey(KeyCode.S) && !dashing)
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.y -= speed;
-
-            transform.position = currentPosition;
-            
-            movementInput= new Vector2(0, -1);
-            
-            animator.SetBool("isRunning", true);
-            
-            //transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
-        
-        if (Input.GetKey(KeyCode.W) && !dashing)
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.y += speed;
-
-            transform.position = currentPosition;
-            
-            movementInput= new Vector2(0, 1);
-            
-            animator.SetBool("isRunning", true);
-        }
-        
-        if (Input.GetKey(KeyCode.D) && !dashing)
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.x += speed;
-        
-            transform.position = currentPosition;
-            
-            //rigidBodyReference.linearVelocity = Vector3.zero;
-            //rigidBodyReference.AddForce(Vector3.up * force);
-            
-            movementInput= new Vector2(1, 0);
-            
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-            //audioSource.PlayOneShot(jumpSound);
-            
-            animator.SetBool("isRunning", true);
-        }
-        
-        if (Input.GetKey(KeyCode.A) && !dashing)
-        {
-            Vector3 currentPosition = transform.position;
-            currentPosition.x -= speed;
-
-            transform.position = currentPosition;
-            
-            movementInput= new Vector2(-1, 0);
-            
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            animator.SetBool("isRunning", true);
-            
-        }
-        
-        
         
     }
 
@@ -264,6 +214,85 @@ public class cat : MonoBehaviour
         cuteness = passiveCuteness;
     }
 
-    
+    public void catEyeAnimation()
+    {
+        emoting = true;
+        
+        animator.SetTrigger("catEye");
+        
+        //for 1 sec it does this and cant do anything else
+        
+        Invoke("StopEmoting", 1.2f);
+        
+    }
+
+    void Movement()
+    {
+        
+        if (Input.GetKey(KeyCode.S) && !dashing)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.y -= speed;
+
+            transform.position = currentPosition;
+            
+            movementInput= new Vector2(0, -1);
+            
+            animator.SetBool("isRunning", true);
+            
+            //transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        
+        if (Input.GetKey(KeyCode.W) && !dashing)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.y += speed;
+
+            transform.position = currentPosition;
+            
+            movementInput= new Vector2(0, 1);
+            
+            animator.SetBool("isRunning", true);
+        }
+        
+        if (Input.GetKey(KeyCode.D) && !dashing)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.x += speed;
+        
+            transform.position = currentPosition;
+            
+            //rigidBodyReference.linearVelocity = Vector3.zero;
+            //rigidBodyReference.AddForce(Vector3.up * force);
+            
+            movementInput= new Vector2(1, 0);
+            
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            //audioSource.PlayOneShot(jumpSound);
+            
+            animator.SetBool("isRunning", true);
+        }
+        
+        if (Input.GetKey(KeyCode.A) && !dashing)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.x -= speed;
+
+            transform.position = currentPosition;
+            
+            movementInput= new Vector2(-1, 0);
+            
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            
+            animator.SetBool("isRunning", true);
+            
+        }
+        
+    }
+
+    public void StopEmoting()
+    {
+        emoting = false;
+    }
 
 }
