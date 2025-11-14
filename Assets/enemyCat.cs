@@ -72,6 +72,11 @@ public class enemyCat : MonoBehaviour
         if (other.CompareTag("playerAttack"))
         {
             HP -= classcat.damage;
+            
+            isDashing = true;
+            Vector2 knockbackDirection = transform.position - other.transform.position;
+            enemyRigidbody.AddForce(knockbackDirection.normalized * classcat.knockbackPower, ForceMode2D.Impulse);
+            
             CheckHP();
             
         }

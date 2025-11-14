@@ -34,6 +34,8 @@ public class cat : MonoBehaviour
     public int passiveCuteness;
 
     public int damage;
+
+    public float knockbackPower;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
