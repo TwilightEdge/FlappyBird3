@@ -33,10 +33,18 @@ public class human : MonoBehaviour
     
     float timeSinceLastEmote = 2;
     
+    public GameObject clock;
+    
+    public clock classclock;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         classcat = cat.GetComponent<cat>();
+        
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
     }
 
     // Update is called once per frame
@@ -44,7 +52,7 @@ public class human : MonoBehaviour
     {
 
 
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.E) && playerIsInside && timeSinceLastEmote > emoteCD) // MEW
+        if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.E) && playerIsInside && timeSinceLastEmote > emoteCD) // MEW
         {
             timeSinceLastEmote = 0;
 
@@ -73,7 +81,7 @@ public class human : MonoBehaviour
         
         
         
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
+        if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
         {
             classcat.catEyeAnimation();
             
@@ -104,7 +112,7 @@ public class human : MonoBehaviour
         
         
         
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
+        if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
         {
             timeSinceLastEmote = 0;
             

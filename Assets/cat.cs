@@ -43,6 +43,10 @@ public class cat : MonoBehaviour
 
     public bool emoting;
     
+    public GameObject clock;
+    
+    public clock classclock;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +55,10 @@ public class cat : MonoBehaviour
         animator = GetComponent<Animator>();
         
         food = 0;
+        
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
     }
 
     // Update is called once per frame
@@ -64,7 +72,7 @@ public class cat : MonoBehaviour
                 Dash();
             }
 
-            if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack > attackTimer)
+            if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack > attackTimer && classclock.isNight)
             {
 
                 //Attack();
