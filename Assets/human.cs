@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class human : MonoBehaviour
@@ -28,6 +29,10 @@ public class human : MonoBehaviour
     public int rubMaxStacks;
     public int rubCounter;
     
+    public float emoteCD = 2;
+    
+    float timeSinceLastEmote = 2;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,8 +44,10 @@ public class human : MonoBehaviour
     {
 
 
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.E) && playerIsInside) // MEW
+        if (foodCount > 0 && Input.GetKeyDown(KeyCode.E) && playerIsInside && timeSinceLastEmote > emoteCD) // MEW
         {
+            timeSinceLastEmote = 0;
+
             if (mewCounter < mewMaxStacks)
             {
                 classcat.cuteness += mewPlusCuteness;
@@ -66,8 +73,10 @@ public class human : MonoBehaviour
         
         
         
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside) // CAT EYE
+        if (foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
         {
+            timeSinceLastEmote = 0;
+
             if (eyeCounter < eyeMaxStacks)
             {
                 classcat.cuteness += eyePlusCuteness;
@@ -93,8 +102,10 @@ public class human : MonoBehaviour
         
         
         
-        if (foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside) // RUB
+        if (foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
         {
+            timeSinceLastEmote = 0;
+            
             if (rubCounter < rubMaxStacks)
             {
                 classcat.cuteness += rubPlusCuteness;
@@ -161,6 +172,8 @@ public class human : MonoBehaviour
     void timePass()
     {
         timeSinceLastfeed += Time.deltaTime;
+        
+        timeSinceLastEmote += Time.deltaTime;
         
     }
     
