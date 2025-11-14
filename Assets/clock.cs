@@ -49,7 +49,9 @@ public class clock : MonoBehaviour
         
         spriteRenderer.sprite = day;
         
-        // all the things that need to happen once in the day time
+        // all remaining enemies sleep
+        
+        // humans spawn
         
     }
     
@@ -61,6 +63,8 @@ public class clock : MonoBehaviour
         
         spriteRenderer.sprite = eve;
         
+        // humans disapear
+        
     }
     
     public void StartNight()
@@ -70,6 +74,10 @@ public class clock : MonoBehaviour
         isNight = true;
         
         spriteRenderer.sprite = night;
+        
+        // enemies start to hunt you again
+        
+        // new enemies spawn
         
     }
 
