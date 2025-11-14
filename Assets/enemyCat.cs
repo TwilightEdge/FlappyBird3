@@ -32,8 +32,10 @@ public class enemyCat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cat = GameObject.FindWithTag("Player");
         classcat = cat.GetComponent<cat>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
