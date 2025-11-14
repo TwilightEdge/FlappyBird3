@@ -48,11 +48,6 @@ public class cat : MonoBehaviour
         
         animator = GetComponent<Animator>();
         
-        if (animator == null)
-        {
-            Debug.LogError("Animator component missing on the Cat GameObject!");
-        }
-        
         food = 0;
     }
 
@@ -207,7 +202,7 @@ public class cat : MonoBehaviour
             attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
             attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
         }
-        Destroy(attackSpawn, 0.2f);
+        Destroy(attackSpawn, 0.3f);
         
         Invoke("setIsAttackingWithDelay", 0.1f);
         
