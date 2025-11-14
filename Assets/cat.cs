@@ -62,7 +62,9 @@ public class cat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K) && timeSinceLastAttack>attackTimer)
         {
 
-            Attack();
+            //Attack();
+            animator.SetTrigger("attack");
+            Invoke("Attack", 0.15f);
 
         }
         
@@ -179,7 +181,7 @@ public class cat : MonoBehaviour
         
         //animator.SetBool("isAttacking", true);
         
-        animator.SetTrigger("attack");
+        
         
         timeSinceLastAttack = 0;    
         
@@ -202,9 +204,9 @@ public class cat : MonoBehaviour
             attackSpawn.transform.position = new Vector2(transform.position.x, transform.position.y)+(movementInput*0.8f);
             attackSpawn.transform.rotation = Quaternion.Euler (0,0,90);
         }
-        Destroy(attackSpawn, 0.3f);
+        Destroy(attackSpawn, 0.15f);
         
-        Invoke("setIsAttackingWithDelay", 0.1f);
+        
         
     }
 
@@ -258,9 +260,6 @@ public class cat : MonoBehaviour
         cuteness = passiveCuteness;
     }
 
-    private void setIsAttackingWithDelay()
-    {
-        //animator.SetBool("isAttacking", false);
-    }
+    
 
 }
