@@ -16,6 +16,11 @@ public class CameraFollow : MonoBehaviour
     {
         if (target != null)
         {
+            Vector3 currentPosition = transform.position;
+            currentPosition.x = target.position.x;
+            currentPosition.y = target.position.y;
+            transform.position=currentPosition;
+            
             // Calculate the initial distance between the camera and the target
             initialOffset = transform.position - target.position;
         }

@@ -14,6 +14,7 @@ public class fish : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cat = GameObject.FindWithTag("Player");
         classcat = cat.GetComponent<cat>();
         fishRigidbody = GetComponent<Rigidbody2D>();
     }
