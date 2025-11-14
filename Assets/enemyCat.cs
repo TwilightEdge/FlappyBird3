@@ -22,20 +22,34 @@ public class enemyCat : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     public float enemySpeed;
+    
+    public float enemyFleeSpeed;
 
     public float enemyDashForce;
 
     public bool isDashing;
 
-    public float endOfDash;
+    public float endOfDash; // the speed for checking if dash ended
+
+    public bool attacking;
+
+    public float missingHP;
+
+    public int maxHP;
+
+    public float timeSinceFleeing;
+
+    public float chanceOfAttackingAgain; // between 0 and 10
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         cat = GameObject.FindWithTag("Player");
         classcat = cat.GetComponent<cat>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         
+        attacking = true;
     }
 
     // Update is called once per frame
@@ -51,8 +65,26 @@ public class enemyCat : MonoBehaviour
         
         CheckDash();
         
-        if(!isDashing) FollowPlayer();
-        
+        if(!isDashing) 
+        {
+            if (attacking)
+            {
+                FollowPlayer();
+            }
+            else
+            {
+                Flee();
+                if (timeSinceFleeing >= 1)
+                {
+                    timeSinceFleeing = 0;
+
+                    if (UnityEngine.Random.Range(0, 10f) < chanceOfAttackingAgain)
+                    {
+                        attacking = true;
+                    }
+                }
+            }
+        }
     }
 
     
@@ -85,11 +117,22 @@ public class enemyCat : MonoBehaviour
         
     }
 
-    void CheckHP()
+    void CheckHP() // also has a chance to flee here
     {
         if (HP <= 0)
         {
             Destroy(gameObject); // or whatever on enemy death
+        }
+        else
+        {
+            missingHP = maxHP - HP;
+
+            if (UnityEngine.Random.Range(0f, missingHP) > 2f)
+            {
+                attacking = false;
+
+                timeSinceFleeing = 0;
+            }
         }
     }
     
@@ -98,6 +141,8 @@ public class enemyCat : MonoBehaviour
         timeSinceLastAttack += Time.deltaTime;
         
         timeSinceLastDash +=  Time.deltaTime;
+        
+        timeSinceFleeing += Time.deltaTime;
         
     }
 
@@ -116,6 +161,25 @@ public class enemyCat : MonoBehaviour
         }
 
         enemyRigidbody.linearVelocity = directionToPlayer.normalized * enemySpeed;
+
+    }
+    
+    void Flee()
+    {
+        Vector2 randomOffset = new Vector2(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f));
+        
+        Vector2 directionToFlee = ((Vector2)transform.position + randomOffset - (Vector2)cat.transform.position  ) ;
+
+        if (directionToFlee.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        enemyRigidbody.linearVelocity = directionToFlee.normalized * enemyFleeSpeed;
 
     }
 
@@ -138,7 +202,7 @@ public class enemyCat : MonoBehaviour
             isDashing = false;
         }
         
-        if(timeSinceLastDash>=dashCD)
+        if(timeSinceLastDash>=dashCD && attacking) // this way it doesnt dash when fleeing, it can be changed
         {
             timeSinceLastDash = 0;
             Dash();
