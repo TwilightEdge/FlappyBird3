@@ -41,10 +41,12 @@ public class enemyCat : MonoBehaviour
 
     public float chanceOfAttackingAgain; // between 0 and 10
     
+    private Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
         cat = GameObject.FindWithTag("Player");
         classcat = cat.GetComponent<cat>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
@@ -88,11 +90,25 @@ public class enemyCat : MonoBehaviour
     }
 
     
+    private void OnCollisionEnter2D(Collision2D collision) // enemy dealing damage
+    {
+        
+        if (collision.gameObject.CompareTag("Player") && timeSinceLastAttack >= attackCD)
+        {
+            animator.SetTrigger("attack");
+            timeSinceLastAttack = 0;
+            classcat.takeDamage(damage);
+        }
+        
+    }
+    
+    
     private void OnCollisionStay2D(Collision2D collision) // enemy dealing damage
     {
         
         if (collision.gameObject.CompareTag("Player") && timeSinceLastAttack >= attackCD)
         {
+            animator.SetTrigger("attack");
             timeSinceLastAttack = 0;
             classcat.takeDamage(damage);
         }
