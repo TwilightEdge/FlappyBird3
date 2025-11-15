@@ -184,8 +184,12 @@ MonoBehaviour:
   attackCD: 2
   damage: 1
   enemySpeed: 2
-  enemyFleeSpeed: 3
+  enemyFleeSpeed: 3.8
   enemyDashForce: 30
   isDashing: 0
   endOfDash: 5
   attacking: 0
+  missingHP: 0
+  maxHP: 9
+  timeSinceFleeing: 0
+  chanceOfAttackingAgain: 2
