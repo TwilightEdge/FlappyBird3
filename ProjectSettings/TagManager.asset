@@ -13,6 +13,8 @@ TagManager:
   - spawner
   - human
   - bg
+  - powerup
+  - shop
   layers:
   - Default
   - TransparentFX

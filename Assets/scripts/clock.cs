@@ -32,9 +32,13 @@ public class clock : MonoBehaviour
     
     Color eveColor;
     
+    public GameObject shop;
+    
 
     void Awake()
     {
+        shop = GameObject.FindWithTag("shop");
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         
         allHumans = GameObject.FindGameObjectsWithTag("human");
@@ -91,6 +95,8 @@ public class clock : MonoBehaviour
     public void StartEve()
     {
         MakeBGEve();
+
+        MakeShopActive();
         
         timepassed = 0;
         isDay = false;
@@ -107,6 +113,8 @@ public class clock : MonoBehaviour
     public void StartNight()
     {
         MakeBGNight();
+
+        MakeShopDeActive();
         
         timepassed = 0;
         isEve = false;
@@ -189,6 +197,17 @@ public class clock : MonoBehaviour
         }
         
     }
+    
+    public void MakeShopActive()
+    {
+        shop.SetActive(true);
+    }
+    public void MakeShopDeActive()
+    {
+        shop.SetActive(false);
+    }
+    
+    
     
     
     public void MakeBGNight()

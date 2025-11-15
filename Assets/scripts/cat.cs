@@ -337,5 +337,13 @@ public class cat : MonoBehaviour
     {
         emoting = false;
     }
+    
+    
+    /*
+    public void PowerUpDamageUp()
+    {
+        damage++;
+    }
+    */
 
 }
