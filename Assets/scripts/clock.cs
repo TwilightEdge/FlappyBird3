@@ -17,6 +17,10 @@ public class clock : MonoBehaviour
     public Sprite day;
     public Sprite eve;
     public Sprite night;
+    
+    public GameObject spawner;
+    
+    public spawner classspawner;
 
 
     void Awake()
@@ -30,7 +34,9 @@ public class clock : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        spawner = GameObject.FindWithTag("spawner");
         
+        classspawner = spawner.GetComponent<spawner>();
         
         
     }
@@ -84,10 +90,10 @@ public class clock : MonoBehaviour
         
         spriteRenderer.sprite = night;
         
-        // enemies start to hunt you again
-        
         // new enemies spawn
-        
+        classspawner.spawn();
+
+
     }
 
 
