@@ -55,6 +55,11 @@ public class enemyCat : MonoBehaviour
 
     private Collider2D colliderReference;
     
+    public GameObject sleepPlace1;
+    public GameObject sleepPlace2;
+    
+    public GameObject[] allSleepPlaces;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -74,6 +79,21 @@ public class enemyCat : MonoBehaviour
         maxHP = HP;
 
         CheckForInitialTime();
+        
+        allSleepPlaces = GameObject.FindGameObjectsWithTag("sleepPlace");
+
+        if (allSleepPlaces.Length > 0)
+        {
+            sleepPlace1 = allSleepPlaces[0]; 
+        }
+
+        // This is the CRITICAL line for the second target
+        if (allSleepPlaces.Length > 1) // Does the array have at least 2 elements?
+        {
+            sleepPlace2 = allSleepPlaces[1]; // Index 1 is the second element
+        }
+        
+        
     }
 
     // Update is called once per frame
