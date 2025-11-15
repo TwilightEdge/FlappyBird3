@@ -92,6 +92,8 @@ public class clock : MonoBehaviour
         
         // new enemies spawn
         classspawner.spawn();
+        
+        //classspawner.Invoke("spawn", 5f);
 
 
     }
