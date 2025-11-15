@@ -8,6 +8,8 @@ TagManager:
   - playerAttack
   - enemy
   - fish
+  - clock
+  - sleepPlace
   layers:
   - Default
   - TransparentFX
