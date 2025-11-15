@@ -83,6 +83,8 @@ public class clock : MonoBehaviour
         isDay = true;
         
         MakeHumansActive();
+
+        MakeShopDeActive();
         
         spriteRenderer.sprite = day;
         
@@ -96,11 +98,13 @@ public class clock : MonoBehaviour
     {
         MakeBGEve();
 
-        MakeShopActive();
+        
         
         timepassed = 0;
         isDay = false;
         isEve = true;
+        
+        MakeShopActive();
         
         MakeHumansDeActive();
         

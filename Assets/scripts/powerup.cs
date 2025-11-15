@@ -10,6 +10,8 @@ public abstract class powerup : MonoBehaviour
 
     public int price;
     
+    public abstract void ApplyEffect();
+    
     private void Awake()
     {
         cat = GameObject.FindWithTag("Player");
@@ -28,12 +30,12 @@ public abstract class powerup : MonoBehaviour
         
     }
     
-    public abstract void ApplyEffect();
     
-    private void OnCollisionStay2D(Collision2D collision) // enemy dealing damage
+    
+    private void OnTriggerStay2D(Collider2D other) // enemy dealing damage
     {
         
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.CompareTag("Player"))
+        if (Input.GetKeyDown(KeyCode.E) && other.gameObject.CompareTag("Player"))
         {
             if (classcat.food>=price)
             {

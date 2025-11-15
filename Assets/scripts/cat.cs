@@ -58,7 +58,7 @@ public class cat : MonoBehaviour
         
         animator = GetComponent<Animator>();
         
-        food = 0;
+        //food = 0;
         
         clock = GameObject.FindWithTag("clock");
         
