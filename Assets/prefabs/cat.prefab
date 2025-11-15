@@ -131,13 +131,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 4344598257964921531, guid: 0b1c087d683b91545aa41222e4902a20, type: 3}
-  dash: {fileID: 7852520265888736336, guid: b5fbedeb9ad5e5b4da2463d4634619c8, type: 3}
   speed: 0.14
   dashForce: 70
   endOfDash: 5
   dashTimer: 1
   attackTimer: 1
-  HP: 900
+  HP: 9
   maxHP: 9
   food: 0
   cuteness: 5
