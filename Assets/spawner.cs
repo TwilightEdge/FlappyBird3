@@ -20,6 +20,10 @@ public class spawner : MonoBehaviour
     public GameObject clock;
     
     public clock classclock;
+
+    public float spawnCD;
+
+    public float timeSinceLastSpawn;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,12 +36,27 @@ public class spawner : MonoBehaviour
         
     }
 
+
+    void FixedUpdate()
+    {
+
+        timePass();
+
+        if (classclock.isNight)
+        {
+            CheckTimeForSpawn();
+        }
+        
+    }
+    
+    
     // Update is called once per frame
     void Update()
     {
         
         if (enemyList.Count == 0 && classclock.isNight)
         {
+            timeSinceLastSpawn = 0;
             spawn();
         }
         
@@ -58,5 +77,31 @@ public class spawner : MonoBehaviour
     {
         enemyList.Remove(enemyToRemove);
     }
+    
+    void timePass()
+    {
+        
+        timeSinceLastSpawn += Time.deltaTime;
+        
+    }
+
+
+    void CheckTimeForSpawn()
+    {
+        if (timeSinceLastSpawn > spawnCD)
+        {
+            timeSinceLastSpawn = 0;
+            spawn();
+        }
+        
+        
+    }
+
+
+    public void ResetTimer()
+    {
+        timeSinceLastSpawn = 0;
+    }
+    
     
 }

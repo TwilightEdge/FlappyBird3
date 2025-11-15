@@ -89,10 +89,13 @@ public class clock : MonoBehaviour
         isNight = true;
         
         spriteRenderer.sprite = night;
-        
-        // new enemies spawn
-        classspawner.spawn();
-        
+
+        classspawner.ResetTimer();
+
+        // we dont need to spawn new enemies when night begins but we can:
+
+        //classspawner.spawn();
+
         //classspawner.Invoke("spawn", 5f);
 
 

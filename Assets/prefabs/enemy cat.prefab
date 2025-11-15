@@ -186,7 +186,7 @@ MonoBehaviour:
   damage: 1
   enemySpeed: 6
   enemyFleeSpeed: 11
-  enemyDashForce: 80
+  enemyDashForce: 70
   isDashing: 0
   endOfDash: 5
   attacking: 0
@@ -200,6 +200,8 @@ MonoBehaviour:
   allSleepPlaces: []
   sleeping: 0
   dash: {fileID: 7852520265888736336, guid: b5fbedeb9ad5e5b4da2463d4634619c8, type: 3}
+  spawner: {fileID: 0}
+  classspawner: {fileID: 0}
 --- !u!95 &3885818870553739826
 Animator:
   serializedVersion: 7
