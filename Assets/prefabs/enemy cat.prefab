@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.36, y: 0, z: 0}
-  m_LocalScale: {x: 0.334285, y: 0.334285, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -194,6 +194,8 @@ MonoBehaviour:
   maxHP: 9
   timeSinceFleeing: 0
   chanceOfAttackingAgain: 2
+  clock: {fileID: 0}
+  classclock: {fileID: 0}
 --- !u!95 &3885818870553739826
 Animator:
   serializedVersion: 7
