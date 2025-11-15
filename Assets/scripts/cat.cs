@@ -5,7 +5,11 @@ public class cat : MonoBehaviour
 {
     
     public GameObject attack;
+    public GameObject dash;
+    
     private GameObject attackSpawn;
+    
+    private GameObject dashSpawn;
     
     Rigidbody2D rigidBodyReference;
     
@@ -178,8 +182,37 @@ public class cat : MonoBehaviour
             
         rigidBodyReference.AddForce(movementInput * dashForce, ForceMode2D.Impulse);
         //rigidBodyReference.AddForce(Vector3.up * dashForce);
-            
+        
+        dashSpawn = Instantiate(dash);
+        
+        dashSpawn.transform.position = new Vector2(transform.position.x, transform.position.y) - (movementInput * 1.5f); // position of dash
+
+        
+        // this is for the rotation
+        if (movementInput == new Vector2(1, 0))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        if (movementInput == new Vector2(-1, 0))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        if (movementInput == new Vector2(0, 1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else
+        if (movementInput == new Vector2(0, -1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+
         dashing = true;
+        
+        Destroy(dashSpawn, 0.2f);
+        
     }
 
     /*

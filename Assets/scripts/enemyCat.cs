@@ -121,9 +121,11 @@ public class enemyCat : MonoBehaviour
         
         timePass();
 
+        CheckForTimeChange();
+        
         TimeManager();
 
-        CheckForTimeChange();
+        
 
 
     }
@@ -170,11 +172,13 @@ public class enemyCat : MonoBehaviour
             
         }
         
-        if (other.CompareTag("sleepPlace")) // reaching sleepPalace
+        if (other.CompareTag("sleepPlace") && classclock.isDay ) // reaching sleepPalace
         {
 
             sleeping = true;
-
+            
+            animator.SetTrigger("sleep");
+            
         }
         
         
@@ -438,9 +442,14 @@ public class enemyCat : MonoBehaviour
     
     void BecomesNight() // one time things after becoming night
     {
+        
         isNight = true;
         sleeping = false;
         colliderReference.isTrigger = false;
+        
+        timeSinceLastDash = 0;
+        
+        animator.SetTrigger("wakeup");
         
     }
     

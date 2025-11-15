@@ -8432,11 +8432,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 522577637344686500, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.139261
+      value: -9.4
       objectReference: {fileID: 0}
     - target: {fileID: 522577637344686500, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.0956287
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 522577637344686500, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18512,11 +18512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9160454147898932314, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: dayDuration
-      value: 40
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9160454147898932314, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: nightDuration
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18922,6 +18922,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357215788265015937, guid: f2a5eac1b28694144a853533b4aee688, type: 3}
+      propertyPath: dash
+      value: 
+      objectReference: {fileID: 7852520265888736336, guid: b5fbedeb9ad5e5b4da2463d4634619c8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
