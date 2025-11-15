@@ -177,26 +177,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3148645414295753927, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.9415066
-      objectReference: {fileID: 0}
-    - target: {fileID: 3148645414295753927, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
-      propertyPath: m_Size.y
-      value: 2.4112847
-      objectReference: {fileID: 0}
-    - target: {fileID: 3148645414295753927, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0161556
-      objectReference: {fileID: 0}
-    - target: {fileID: 3148645414295753927, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.2000612
-      objectReference: {fileID: 0}
-    - target: {fileID: 6310301541081718309, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6987783826994075058, guid: 6f66618bd10da2e48ac420e1398a6a5a, type: 3}
       propertyPath: m_Name
       value: enemy cat
@@ -576,11 +556,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 346349283093786220, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.08
+      value: 7.897
       objectReference: {fileID: 0}
     - target: {fileID: 346349283093786220, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.26
+      value: 4.087
       objectReference: {fileID: 0}
     - target: {fileID: 346349283093786220, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: m_LocalPosition.z
@@ -617,10 +597,6 @@ PrefabInstance:
     - target: {fileID: 6525459019596850714, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
       propertyPath: m_Name
       value: clock
-      objectReference: {fileID: 0}
-    - target: {fileID: 9160454147898932314, guid: b809084f2a51bd2438c376f40efd0233, type: 3}
-      propertyPath: nightDuration
-      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
