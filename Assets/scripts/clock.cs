@@ -17,13 +17,22 @@ public class clock : MonoBehaviour
     public Sprite day;
     public Sprite eve;
     public Sprite night;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         
         StartDay();
+    }
+    
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+        
+        
     }
 
     // Update is called once per frame

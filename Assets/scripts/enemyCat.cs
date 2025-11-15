@@ -71,9 +71,9 @@ public class enemyCat : MonoBehaviour
         
         attacking = true;
 
-        isDay = true;
-
         maxHP = HP;
+
+        CheckForInitialTime();
     }
 
     // Update is called once per frame
@@ -212,6 +212,14 @@ public class enemyCat : MonoBehaviour
         
         enemyRigidbody.AddForce(directionToPlayer.normalized * enemyDashForce, ForceMode2D.Impulse);
         
+        if (directionToPlayer.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
         
         
     }
@@ -230,6 +238,31 @@ public class enemyCat : MonoBehaviour
         }
     }
 
+
+    void CheckForInitialTime()
+    {
+        if (classclock.isDay)
+        {
+            BecomesDay();
+
+
+        }
+        else
+        if(classclock.isNight)
+        {
+            BecomesNight();
+            
+            
+        }
+        else if (classclock.isEve)
+        {
+            BecomesEve();
+
+
+        }
+    }
+    
+    
     void CheckForTimeChange()
     {
         
@@ -323,13 +356,22 @@ public class enemyCat : MonoBehaviour
     
     void BecomesDay() // one time things after becoming day
     {
+        isDay = true;
         colliderReference.isTrigger = true;
         
     }
     
     void BecomesNight() // one time things after becoming night
     {
+        isNight = true;
         colliderReference.isTrigger = false;
+        
+    }
+    
+    void BecomesEve() // one time things after becoming eve
+    {
+        isEve = true;
+        
         
     }
     
