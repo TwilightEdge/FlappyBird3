@@ -43,6 +43,18 @@ public class enemyCat : MonoBehaviour
     
     private Animator animator;
     
+    public GameObject clock;
+    
+    public clock classclock;
+
+    bool isDay = false;
+    
+    bool isEve= false;
+    
+    bool isNight= false;
+
+    private Collider2D colliderReference;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,7 +63,15 @@ public class enemyCat : MonoBehaviour
         classcat = cat.GetComponent<cat>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         
+        colliderReference = GetComponent<Collider2D>();
+        
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
+        
         attacking = true;
+
+        isDay = true;
     }
 
     // Update is called once per frame
@@ -64,29 +84,12 @@ public class enemyCat : MonoBehaviour
     {
         
         timePass();
-        
-        CheckDash();
-        
-        if(!isDashing) 
-        {
-            if (attacking)
-            {
-                FollowPlayer();
-            }
-            else
-            {
-                Flee();
-                if (timeSinceFleeing >= 1)
-                {
-                    timeSinceFleeing = 0;
 
-                    if (UnityEngine.Random.Range(0, 10f) < chanceOfAttackingAgain)
-                    {
-                        attacking = true;
-                    }
-                }
-            }
-        }
+        TimeManager();
+
+        CheckForTimeChange();
+
+
     }
 
     
@@ -223,6 +226,109 @@ public class enemyCat : MonoBehaviour
             timeSinceLastDash = 0;
             Dash();
         }
+    }
+
+    void CheckForTimeChange()
+    {
+        
+        if (classclock.isDay)
+        {
+            if (isNight)
+            {
+                isNight = false;
+                isDay = true;
+                BecomesDay();
+            }
+            
+            
+        }
+        else
+        if(classclock.isEve)
+        {
+            
+            if (isDay)
+            {
+                isDay = false;
+                isEve = true;
+                //BecomesEve();
+            }
+            
+        }
+        else if (classclock.isNight)
+        {
+            
+            if (isEve)
+            {
+                isEve = false;
+                isNight = true;
+                BecomesNight();
+            }
+            
+        }
+
+    }
+
+
+    void TimeManager()
+    {
+        
+        if (classclock.isEve)
+        {
+            // do the eve things
+            
+            
+        }
+        else
+        if(classclock.isDay)
+        {
+            // do the day things
+            
+            
+        }
+        else
+        if(classclock.isNight)
+        {
+            // do the night things
+            
+            CheckDash();
+        
+            if(!isDashing) 
+            {
+                if (attacking)
+                {
+                    FollowPlayer();
+                }
+                else
+                {
+                    Flee();
+                    if (timeSinceFleeing >= 1)
+                    {
+                        timeSinceFleeing = 0;
+
+                        if (UnityEngine.Random.Range(0, 10f) < chanceOfAttackingAgain)
+                        {
+                            attacking = true;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+        
+    }
+    
+    
+    void BecomesDay() // one time things after becoming day
+    {
+        colliderReference.isTrigger = true;
+        
+    }
+    
+    void BecomesNight() // one time things after becoming night
+    {
+        colliderReference.isTrigger = false;
+        
     }
     
 }
