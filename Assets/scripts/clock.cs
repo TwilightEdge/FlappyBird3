@@ -22,10 +22,24 @@ public class clock : MonoBehaviour
     
     public spawner classspawner;
 
+    public GameObject[] allHumans;
+    
+    public GameObject[] allbg;
+    
+    Color nightColor;
+    
+    Color dayColor;
+    
+    Color eveColor;
+    
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        allHumans = GameObject.FindGameObjectsWithTag("human");
+        
+        allbg = GameObject.FindGameObjectsWithTag("bg");
         
         StartDay();
     }
@@ -58,9 +72,13 @@ public class clock : MonoBehaviour
 
     public void StartDay()
     {
+        MakeBGDay();
+        
         timepassed = 0;
         isNight = false;
         isDay = true;
+        
+        MakeHumansActive();
         
         spriteRenderer.sprite = day;
         
@@ -72,9 +90,13 @@ public class clock : MonoBehaviour
     
     public void StartEve()
     {
+        MakeBGEve();
+        
         timepassed = 0;
         isDay = false;
         isEve = true;
+        
+        MakeHumansDeActive();
         
         spriteRenderer.sprite = eve;
         
@@ -84,6 +106,8 @@ public class clock : MonoBehaviour
     
     public void StartNight()
     {
+        MakeBGNight();
+        
         timepassed = 0;
         isEve = false;
         isNight = true;
@@ -91,6 +115,8 @@ public class clock : MonoBehaviour
         spriteRenderer.sprite = night;
 
         classspawner.ResetTimer();
+        
+        
 
         // we dont need to spawn new enemies when night begins but we can:
 
@@ -140,5 +166,73 @@ public class clock : MonoBehaviour
         }
         
     }
+    
+    
+    public void MakeHumansActive()
+    {
+        
+        foreach (GameObject target in allHumans)
+        {
+            // The single line of code to set the active/inactive state of the object:
+            target.SetActive(true); // Or target.SetActive(false);
+        }
+        
+    }
+    
+    public void MakeHumansDeActive()
+    {
+        
+        foreach (GameObject target in allHumans)
+        {
+            // The single line of code to set the active/inactive state of the object:
+            target.SetActive(false); // Or target.SetActive(false);
+        }
+        
+    }
+    
+    
+    public void MakeBGNight()
+    {
+        
+        ColorUtility.TryParseHtmlString("#7674BF", out nightColor);
+        
+        foreach (GameObject target in allbg)
+        {
+            
+            target.GetComponent<SpriteRenderer>().color = nightColor;
+            
+        }
+        
+    }
+    
+    
+    public void MakeBGDay()
+    {
+        ColorUtility.TryParseHtmlString("#FFFFFF", out dayColor);
+        
+        foreach (GameObject target in allbg)
+        {
+            
+            target.GetComponent<SpriteRenderer>().color = dayColor;
+            
+        }
+        
+    }
+    
+        
+    public void MakeBGEve()
+    {
+        
+        ColorUtility.TryParseHtmlString("#D28D66", out eveColor);
+        
+        foreach (GameObject target in allbg)
+        {
+            
+            target.GetComponent<SpriteRenderer>().color = eveColor;
+            
+        }
+        
+    }
+    
 
 }

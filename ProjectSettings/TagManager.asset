@@ -11,6 +11,8 @@ TagManager:
   - clock
   - sleepPlace
   - spawner
+  - human
+  - bg
   layers:
   - Default
   - TransparentFX

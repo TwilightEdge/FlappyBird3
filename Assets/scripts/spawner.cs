@@ -25,6 +25,16 @@ public class spawner : MonoBehaviour
 
     public float timeSinceLastSpawn;
     
+    
+    
+
+
+    void Awake()
+    {
+        
+    }
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -102,6 +112,8 @@ public class spawner : MonoBehaviour
     {
         timeSinceLastSpawn = 0;
     }
+
+    
     
     
 }
