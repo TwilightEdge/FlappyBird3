@@ -35,7 +35,7 @@ public class enemyCat : MonoBehaviour
 
     public float missingHP;
 
-    public int maxHP;
+    private int maxHP;
 
     public float timeSinceFleeing;
 
@@ -72,6 +72,8 @@ public class enemyCat : MonoBehaviour
         attacking = true;
 
         isDay = true;
+
+        maxHP = HP;
     }
 
     // Update is called once per frame

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6987783826994075058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 0, z: 0}
+  m_LocalPosition: {x: 2.36, y: 0, z: 0.95}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,14 +184,13 @@ MonoBehaviour:
   dashCD: 3
   attackCD: 2
   damage: 1
-  enemySpeed: 2
+  enemySpeed: 6
   enemyFleeSpeed: 3.8
-  enemyDashForce: 30
+  enemyDashForce: 80
   isDashing: 0
   endOfDash: 5
   attacking: 0
   missingHP: 0
-  maxHP: 9
   timeSinceFleeing: 0
   chanceOfAttackingAgain: 2
   clock: {fileID: 0}
