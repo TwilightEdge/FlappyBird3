@@ -40,6 +40,8 @@ public class human : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cat = GameObject.FindWithTag("Player");
+        
         classcat = cat.GetComponent<cat>();
         
         clock = GameObject.FindWithTag("clock");
