@@ -59,6 +59,10 @@ public class enemyCat : MonoBehaviour
     public GameObject sleepPlace2;
     
     public GameObject[] allSleepPlaces;
+
+    public bool sleeping;
+
+    private Vector2 directionToSleepPlace;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -156,7 +160,17 @@ public class enemyCat : MonoBehaviour
             
         }
         
+        if (other.CompareTag("sleepPlace")) // reaching sleepPalace
+        {
+
+            sleeping = true;
+
+        }
+        
+        
     }
+
+    
 
     void CheckHP() // also has a chance to flee here
     {
@@ -324,7 +338,7 @@ public class enemyCat : MonoBehaviour
     }
 
 
-    void TimeManager()
+    void TimeManager() // DOOOOOOOOOOOOOOOOOOOOOOOOOOOO THE EACH FRAME THINGS HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
     {
         
         if (classclock.isEve)
@@ -337,7 +351,27 @@ public class enemyCat : MonoBehaviour
         if(classclock.isDay)
         {
             // do the day things
-            
+
+            if (!sleeping)
+            {
+                // go sleep
+                
+                if (directionToSleepPlace.x > 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+
+                enemyRigidbody.linearVelocity = directionToSleepPlace.normalized * enemySpeed;
+                
+            }
+            else
+            {
+                 // you are sleeping
+            }
             
         }
         else
@@ -379,11 +413,23 @@ public class enemyCat : MonoBehaviour
         isDay = true;
         colliderReference.isTrigger = true;
         
+        if (UnityEngine.Random.Range(0, 1) < 1) // choose a sleepPlace
+        {
+            directionToSleepPlace = sleepPlace1.transform.position - transform.position; // get the direction
+        }
+        else
+        {
+            directionToSleepPlace = sleepPlace2.transform.position - transform.position; // get the direction
+        }
+
+        
+
     }
     
     void BecomesNight() // one time things after becoming night
     {
         isNight = true;
+        sleeping = false;
         colliderReference.isTrigger = false;
         
     }
