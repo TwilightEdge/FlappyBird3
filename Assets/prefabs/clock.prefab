@@ -104,8 +104,12 @@ MonoBehaviour:
   isEve: 0
   isNight: 0
   timepassed: 0
-  dayDuration: 8
-  nightDuration: 30
+  dayDuration: 3
+  nightDuration: 3
   day: {fileID: 21300000, guid: daf65c6082887ee42b7d6ad437bc9d48, type: 3}
   eve: {fileID: 21300000, guid: a3dea430db6251b4dbabbe52428cba40, type: 3}
   night: {fileID: 21300000, guid: fc4da64995e8386439acb1aa65eb90d4, type: 3}
+  spawner: {fileID: 0}
+  classspawner: {fileID: 0}
+  allHumans: []
+  allbg: []
