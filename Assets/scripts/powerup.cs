@@ -10,6 +10,8 @@ public abstract class powerup : MonoBehaviour
 
     public int price;
     
+    //public bool playerIsTouching; 
+    
     public abstract void ApplyEffect();
     
     private void Awake()
@@ -27,38 +29,49 @@ public abstract class powerup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
-    
-    
-    
-    private void OnTriggerStay2D(Collider2D other) // enemy dealing damage
-    {
-        
-        if (Input.GetKeyDown(KeyCode.E) && other.gameObject.CompareTag("Player"))
+
+    private void OnTriggerStay2D(Collider2D other)
         {
-            if (classcat.food>=price)
+            if (other.CompareTag("Player"))
             {
+                Debug.Log("you are in");
                 
-                classcat.food-=price;
-                
-                this.ApplyEffect();
-                
-                //classcat.PowerUpDamageUp();
-                
-                //classshop.UnregisterEnemy(this.gameObject);
-                
-                Destroy(gameObject);
-                
-            }
-            else
-            {
-                //you do not have enough money
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("E pushed");
+
+                    if (classcat.food >= price)
+                    {
+                        Debug.Log("you have the food");
+
+                        classcat.food -= price;
+
+                        this.ApplyEffect();
+
+                        //classcat.PowerUpDamageUp();
+
+                        //classshop.UnregisterEnemy(this.gameObject);
+
+                        Destroy(gameObject);
+
+                    }
+                    else
+                    {
+                        Debug.Log("you do not have enough money");
+                        //you do not have enough money
+                    }
+
+                }
             }
 
-            
         }
-        
-    }
+    
+    
+    
+    
+    
+    
+   
     
 }
