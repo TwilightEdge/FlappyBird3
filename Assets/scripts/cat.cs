@@ -63,6 +63,8 @@ public class cat : MonoBehaviour
         clock = GameObject.FindWithTag("clock");
         
         classclock = clock.GetComponent<clock>();
+
+        maxHP = HP;
     }
 
     // Update is called once per frame

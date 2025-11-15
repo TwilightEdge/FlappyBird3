@@ -63,6 +63,14 @@ public class enemyCat : MonoBehaviour
     public bool sleeping;
 
     private Vector2 directionToSleepPlace;
+    
+    public GameObject dash;
+    
+    private GameObject dashSpawn;
+
+    private Vector2 directionToPlayer;
+    
+    private Vector2 dashRotation;
 
 
     void Awake()
@@ -218,7 +226,7 @@ public class enemyCat : MonoBehaviour
     void FollowPlayer()
     {
         
-        Vector2 directionToPlayer = cat.transform.position - transform.position;
+        directionToPlayer = cat.transform.position - transform.position;
 
         if (directionToPlayer.x > 0)
         {
@@ -256,7 +264,7 @@ public class enemyCat : MonoBehaviour
     {
         isDashing = true;
         
-        Vector2 directionToPlayer = cat.transform.position - transform.position;
+        directionToPlayer = cat.transform.position - transform.position;
         
         enemyRigidbody.AddForce(directionToPlayer.normalized * enemyDashForce, ForceMode2D.Impulse);
         
@@ -270,8 +278,62 @@ public class enemyCat : MonoBehaviour
         }
         
         
+        dashSpawn = Instantiate(dash);
+        
+        dashSpawn.transform.position = new Vector2(transform.position.x, transform.position.y) - (directionToPlayer.normalized * 1.5f); // position of dash
+
+        dashRotation = SnapToCardinalAxis(directionToPlayer); // this calculates dash rotation
+        
+        // this is for the rotation
+        if (dashRotation == new Vector2(1, 0) && directionToPlayer.normalized == new Vector2(1, -1) && directionToPlayer.normalized == new Vector2(1, 1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        if (dashRotation == new Vector2(-1, 0) && directionToPlayer.normalized == new Vector2(-1, -1) && directionToPlayer.normalized == new Vector2(-1, 1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        if (dashRotation == new Vector2(0, 1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
+        else
+        if (dashRotation == new Vector2(0, -1))
+        {
+            dashSpawn.transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
+        
+        Destroy(dashSpawn, 0.2f);
+        
     }
 
+    
+    public Vector2 SnapToCardinalAxis(Vector2 directionToPlayer)
+    {
+        // 1. Get the absolute values (magnitude) of the X and Y components
+        float absX = Mathf.Abs(directionToPlayer.x);
+        float absY = Mathf.Abs(directionToPlayer.y);
+
+        // 2. Check for the dominant axis (Horizontal vs. Vertical)
+        if (absX > absY)
+        {
+            // Direction is predominantly horizontal (Left or Right)
+        
+            // Use Mathf.Sign to get +1 for right or -1 for left. Y is zero.
+            return new Vector2(Mathf.Sign(directionToPlayer.x), 0);
+        }
+        else
+        {
+            // Direction is predominantly vertical (Up or Down, or exactly diagonal/zero)
+
+            // Use Mathf.Sign to get +1 for up or -1 for down. X is zero.
+            return new Vector2(0, Mathf.Sign(directionToPlayer.y));
+        }
+    }
+    
+    
     void CheckDash() //can dash and end of dash
     {
         if (Mathf.Abs(enemyRigidbody.linearVelocity.x) <= endOfDash && Mathf.Abs(enemyRigidbody.linearVelocity.y) <= endOfDash)
