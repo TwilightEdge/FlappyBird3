@@ -63,6 +63,27 @@ public class enemyCat : MonoBehaviour
     public bool sleeping;
 
     private Vector2 directionToSleepPlace;
+
+
+    void Awake()
+    {
+        
+        allSleepPlaces = GameObject.FindGameObjectsWithTag("sleepPlace");
+
+        if (allSleepPlaces.Length > 0)
+        {
+            sleepPlace1 = allSleepPlaces[0]; 
+        }
+
+        // This is the CRITICAL line for the second target
+        if (allSleepPlaces.Length > 1) // Does the array have at least 2 elements?
+        {
+            sleepPlace2 = allSleepPlaces[1]; // Index 1 is the second element
+        }
+        
+        
+    }
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,18 +105,7 @@ public class enemyCat : MonoBehaviour
 
         CheckForInitialTime();
         
-        allSleepPlaces = GameObject.FindGameObjectsWithTag("sleepPlace");
-
-        if (allSleepPlaces.Length > 0)
-        {
-            sleepPlace1 = allSleepPlaces[0]; 
-        }
-
-        // This is the CRITICAL line for the second target
-        if (allSleepPlaces.Length > 1) // Does the array have at least 2 elements?
-        {
-            sleepPlace2 = allSleepPlaces[1]; // Index 1 is the second element
-        }
+        
         
         
     }
@@ -413,7 +423,7 @@ public class enemyCat : MonoBehaviour
         isDay = true;
         colliderReference.isTrigger = true;
         
-        if (UnityEngine.Random.Range(0, 1) < 1) // choose a sleepPlace
+        if (UnityEngine.Random.Range(0, 10f) < 5f) // choose a sleepPlace
         {
             directionToSleepPlace = sleepPlace1.transform.position - transform.position; // get the direction
         }
