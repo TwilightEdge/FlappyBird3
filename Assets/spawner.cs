@@ -48,11 +48,15 @@ public class spawner : MonoBehaviour
         
         enemySpawn1 = Instantiate(enemy1);
 
-        enemySpawn1.transform.position = new Vector2(Random.Range(area1MinX, area1MaxX), Random.Range(area1MinY, area1MaxY));
+        enemySpawn1.transform.position = new Vector3(Random.Range(area1MinX, area1MaxX), Random.Range(area1MinY, area1MaxY), 0.95f);
         
         enemyList.Add(enemySpawn1);
 
     }
     
+    public void UnregisterEnemy(GameObject enemyToRemove)
+    {
+        enemyList.Remove(enemyToRemove);
+    }
     
 }

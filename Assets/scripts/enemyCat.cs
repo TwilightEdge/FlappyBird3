@@ -71,6 +71,10 @@ public class enemyCat : MonoBehaviour
     private Vector2 directionToPlayer;
     
     private Vector2 dashRotation;
+    
+    public GameObject spawner;
+    
+    public spawner classspawner;
 
 
     void Awake()
@@ -89,6 +93,9 @@ public class enemyCat : MonoBehaviour
             sleepPlace2 = allSleepPlaces[1]; // Index 1 is the second element
         }
         
+        spawner = GameObject.FindWithTag("spawner");
+        
+        classspawner = spawner.GetComponent<spawner>();
         
     }
     
@@ -198,6 +205,7 @@ public class enemyCat : MonoBehaviour
     {
         if (HP <= 0)
         {
+            classspawner.UnregisterEnemy(this.gameObject);
             Destroy(gameObject); // or whatever on enemy death
         }
         else
