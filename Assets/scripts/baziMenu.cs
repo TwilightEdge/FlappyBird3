@@ -1,11 +1,14 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class baziMenu : MonoBehaviour
 {
     public TextMeshProUGUI HP;
     public TextMeshProUGUI food;
     public TextMeshProUGUI cuteness;
+
+    public GameObject restartMenu;
 
     
     
@@ -45,4 +48,22 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    
+    public void LoadGameScene()
+    {
+        //restartMenu.SetActive(false);
+        SceneManager.LoadScene("background");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void RestartMenu()
+    {
+        restartMenu.SetActive(true);
+    }
+    
+    
 }

@@ -55,6 +55,17 @@ public class cat : MonoBehaviour
     
     public bool catRubUpgrade;
     
+    public GameObject menu;
+    
+    //public menu classmenu;
+
+    void Awake()
+    {
+        menu = GameObject.FindWithTag("menu");
+        
+        //classmenu = menu.GetComponent<baziMenu>();
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
