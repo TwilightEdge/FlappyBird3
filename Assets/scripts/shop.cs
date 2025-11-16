@@ -14,17 +14,27 @@ public class shop : MonoBehaviour
 
     private int randomIndex = 0;
 
-    private int numberOfItemsShown = 3;
+    public int numberOfItemsShown = 3;
+    
+    public GameObject clock;
+    
+    public clock classclock;
 
     private void Awake()
     {
         powerupList = new List<GameObject>(GameObject.FindGameObjectsWithTag("powerup"));
+        
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
+        
+        CloseShop();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CloseShop();
+        
     }
 
     // Update is called once per frame
@@ -47,22 +57,25 @@ public class shop : MonoBehaviour
 
     public void CloseShop()
     {
+        //if (classclock.isNight)
+        //{
 
-        foreach (GameObject obj in powerupList)
-        {
-            // IMPORTANT: Check if the object is null (destroyed) before accessing it
-            if (obj != null)
+            foreach (GameObject obj in powerupList)
             {
-                // The line you asked for: sets the active state to false
-                obj.SetActive(false); 
+                // IMPORTANT: Check if the object is null (destroyed) before accessing it
+                if (obj != null)
+                {
+                    // The line you asked for: sets the active state to false
+                    obj.SetActive(false);
+                }
             }
-        }
 
-
+        //}
     }
     
     public void OpenShop()
     {
+        Debug.Log("OpenShop");
 
         if (numberOfItemsShown > powerupList.Count)
         {
@@ -71,7 +84,7 @@ public class shop : MonoBehaviour
         
         for (int i = 0; i < numberOfItemsShown; i++)
         {
-            
+            Debug.Log("creating power ups");
             powerupList[i].SetActive(true); 
             
             powerupList[i].transform.localPosition = new Vector2(i * 10f, 0);
