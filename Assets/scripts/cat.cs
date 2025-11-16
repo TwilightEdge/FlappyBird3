@@ -55,15 +55,15 @@ public class cat : MonoBehaviour
     
     public bool catRubUpgrade;
     
-    public GameObject menu;
+    public GameObject baziMenu;
     
-    //public menu classmenu;
+    public baziMenu classmenu;
 
     void Awake()
     {
-        menu = GameObject.FindWithTag("menu");
+        baziMenu = GameObject.FindWithTag("menu");
         
-        //classmenu = menu.GetComponent<baziMenu>();
+        classmenu = baziMenu.GetComponent<baziMenu>();
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -258,7 +258,7 @@ public class cat : MonoBehaviour
     {
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            classmenu.RestartMenu();
         }
     }
 
