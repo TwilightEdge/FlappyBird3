@@ -10,7 +10,7 @@ public abstract class powerup : MonoBehaviour
 
     public int price;
     
-    //public bool playerIsTouching; 
+    public bool playerIsTouching; 
     
     public abstract void ApplyEffect();
     
@@ -29,14 +29,47 @@ public abstract class powerup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the object that entered has the "Player" tag
+        if (other.CompareTag("Player"))
         {
+            playerIsTouching = true;
+            Debug.Log("Player entered the interaction zone. Press E to interact.");
+            
+        }
+    }
+    
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // Check if the object that left has the "Player" tag
+        if (other.CompareTag("Player"))
+        {
+            playerIsTouching = false;
+        }
+        
+    }
+    
+    
+
+
+
+
+
+
+    /*
+    private void OnTriggerStay2D(Collider2D other)
+    {
             if (other.CompareTag("Player"))
             {
                 Debug.Log("you are in");
-                
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("E pushed");
@@ -65,8 +98,8 @@ public abstract class powerup : MonoBehaviour
                 }
             }
 
-        }
-    
+    }
+    */
     
     
     
