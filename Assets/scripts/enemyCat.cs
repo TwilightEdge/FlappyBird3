@@ -192,7 +192,9 @@ public class enemyCat : MonoBehaviour
 
             sleeping = true;
             
-            animator.SetTrigger("sleep");
+            animator.SetBool("sleepingAnime", true);
+            
+            //animator.SetTrigger("sleep");
             
         }
         
@@ -519,7 +521,9 @@ public class enemyCat : MonoBehaviour
         
         timeSinceLastDash = 0;
         
-        animator.SetTrigger("wakeup");
+        //animator.SetTrigger("wakeup");
+        
+        animator.SetBool("sleepingAnime", false);
         
     }
     
