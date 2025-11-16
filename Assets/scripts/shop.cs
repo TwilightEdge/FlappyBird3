@@ -27,12 +27,14 @@ public class shop : MonoBehaviour
         clock = GameObject.FindWithTag("clock");
         
         classclock = clock.GetComponent<clock>();
+        
+        CloseShop();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CloseShop();
+        
     }
 
     // Update is called once per frame
@@ -55,8 +57,8 @@ public class shop : MonoBehaviour
 
     public void CloseShop()
     {
-        if (classclock.isNight)
-        {
+        //if (classclock.isNight)
+        //{
 
             foreach (GameObject obj in powerupList)
             {
@@ -68,7 +70,7 @@ public class shop : MonoBehaviour
                 }
             }
 
-        }
+        //}
     }
     
     public void OpenShop()
