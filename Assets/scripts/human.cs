@@ -126,6 +126,8 @@ public class human : MonoBehaviour
         
         if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
         {
+            classcat.catRubAnimation();
+            
             timeSinceLastEmote = 0;
             
             if (rubCounter < rubMaxStacks)

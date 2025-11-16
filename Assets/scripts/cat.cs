@@ -280,6 +280,17 @@ public class cat : MonoBehaviour
         Invoke("StopEmoting", 1.2f);
     }
     
+    public void catRubAnimation()
+    {
+        emoting = true;
+        
+        animator.SetTrigger("stretch");
+        
+        //for 1 sec it does this and cant do anything else
+        
+        Invoke("StopEmoting", 1.2f);
+    }
+    
 
     void Movement()
     {
