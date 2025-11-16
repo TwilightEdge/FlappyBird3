@@ -34,6 +34,7 @@ public class clock : MonoBehaviour
     
     public GameObject shop;
     
+    public shop classshop;
 
     void Awake()
     {
@@ -45,17 +46,21 @@ public class clock : MonoBehaviour
         
         allbg = GameObject.FindGameObjectsWithTag("bg");
         
-        StartDay();
+        spawner = GameObject.FindWithTag("spawner");
+        
+        classspawner = spawner.GetComponent<spawner>();
+        
+        classshop = shop.GetComponent<shop>();
+        
+        
     }
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawner = GameObject.FindWithTag("spawner");
         
-        classspawner = spawner.GetComponent<spawner>();
-        
+        StartDay();
         
     }
 
@@ -106,6 +111,10 @@ public class clock : MonoBehaviour
         
         MakeShopActive();
         
+        classshop.ShuffleShop();
+        
+        classshop.OpenShop();
+        
         MakeHumansDeActive();
         
         spriteRenderer.sprite = eve;
@@ -117,7 +126,9 @@ public class clock : MonoBehaviour
     public void StartNight()
     {
         MakeBGNight();
-
+        
+        classshop.CloseShop();
+        
         MakeShopDeActive();
         
         timepassed = 0;

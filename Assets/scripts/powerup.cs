@@ -7,6 +7,10 @@ public abstract class powerup : MonoBehaviour
     public GameObject cat;
     
     public cat classcat;
+    
+    public GameObject shop;
+    
+    public shop classshop;
 
     public int price;
     
@@ -18,6 +22,9 @@ public abstract class powerup : MonoBehaviour
     {
         cat = GameObject.FindWithTag("Player");
         classcat = cat.GetComponent<cat>();
+        
+        shop = GameObject.FindWithTag("shop");
+        classshop = shop.GetComponent<shop>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

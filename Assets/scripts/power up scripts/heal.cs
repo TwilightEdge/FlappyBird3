@@ -24,9 +24,9 @@ public class heal : powerup
 
                 this.ApplyEffect();
 
-                //classcat.PowerUpDamageUp();
+                
 
-                //classshop.UnregisterEnemy(this.gameObject);
+                classshop.UnregisterPowerup(this.gameObject);
 
                 Destroy(gameObject);
 
