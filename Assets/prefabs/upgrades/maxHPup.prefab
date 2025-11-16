@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c012292e360b6af41993051f6b524d92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 371ea3534b13e2a47b8d6559ee84c17b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -265,6 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cat: {fileID: 0}
   classcat: {fileID: 0}
+  shop: {fileID: 0}
+  classshop: {fileID: 0}
   price: 10
   playerIsTouching: 0
   maxHPup: 2

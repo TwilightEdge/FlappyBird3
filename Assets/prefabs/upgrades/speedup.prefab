@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7523941147773311793}
   - component: {fileID: 5353719551708986876}
   - component: {fileID: 1277015401555783464}
-  - component: {fileID: 956247126251470999}
+  - component: {fileID: 6841078237561306192}
   m_Layer: 0
   m_Name: speedup
   m_TagString: powerup
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe99384109c7dc545a446a634c591e59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7365e965e74160143bf97ebc4775be1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
+    oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 11.2, y: 9.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6877022, y: 1.3977356}
   m_EdgeRadius: 0
---- !u!114 &956247126251470999
+--- !u!114 &6841078237561306192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,16 +173,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1900743914161465882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce023e4ade2dab94ea055a529015e86d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3897a0a7f6f7a7b48bb2e477906431ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 0}
   classcat: {fileID: 0}
   shop: {fileID: 0}
   classshop: {fileID: 0}
-  price: 5
+  price: 10
   playerIsTouching: 0
-  cuteUp: 2
+  speedUp: 0
 --- !u!1 &5572167454799922700
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c012292e360b6af41993051f6b524d92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 371ea3534b13e2a47b8d6559ee84c17b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
