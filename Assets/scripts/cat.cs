@@ -50,6 +50,10 @@ public class cat : MonoBehaviour
     public GameObject clock;
     
     public clock classclock;
+
+    public bool catEyeUpgrade;
+    
+    public bool catRubUpgrade;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
