@@ -43,6 +43,10 @@ public class clock : MonoBehaviour
     private GameObject binSpawn2;
     private GameObject binSpawn3;
     private GameObject binSpawn4;
+    
+    public human classhuman;
+    
+    public GameObject human;
 
     void Awake()
     {
@@ -59,6 +63,11 @@ public class clock : MonoBehaviour
         classspawner = spawner.GetComponent<spawner>();
         
         classshop = shop.GetComponent<shop>();
+        
+        
+        human = GameObject.FindWithTag("human");
+        
+        classhuman = human.GetComponent<human>();
         
         
     }
@@ -96,6 +105,8 @@ public class clock : MonoBehaviour
         isDay = true;
         
         MakeHumansActive();
+        
+        
 
         MakeShopDeActive();
 
@@ -210,6 +221,9 @@ public class clock : MonoBehaviour
         {
             // The single line of code to set the active/inactive state of the object:
             target.SetActive(true); // Or target.SetActive(false);
+
+            CutenessReset();
+
         }
         
     }
@@ -304,6 +318,19 @@ public class clock : MonoBehaviour
         Destroy(binSpawn2);
         Destroy(binSpawn3);
         Destroy(binSpawn4);
+        
+        
+    }
+    
+    public void CutenessReset() // resets all the humans req cuteness
+    {
+        
+        foreach (GameObject target in allHumans)
+        {
+            // The single line of code to set the active/inactive state of the object:
+            target.GetComponent<human>().CutenessReset();
+        }
+        
         
         
     }

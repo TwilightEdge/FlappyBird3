@@ -50,6 +50,10 @@ public class cat : MonoBehaviour
     public GameObject clock;
     
     public clock classclock;
+
+    public bool catEyeUpgrade;
+    
+    public bool catRubUpgrade;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -274,6 +278,17 @@ public class cat : MonoBehaviour
         emoting = true;
         
         animator.SetTrigger("mew");
+        
+        //for 1 sec it does this and cant do anything else
+        
+        Invoke("StopEmoting", 1.2f);
+    }
+    
+    public void catRubAnimation()
+    {
+        emoting = true;
+        
+        animator.SetTrigger("stretch");
         
         //for 1 sec it does this and cant do anything else
         

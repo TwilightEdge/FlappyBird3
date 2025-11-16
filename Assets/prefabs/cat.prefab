@@ -137,16 +137,18 @@ MonoBehaviour:
   endOfDash: 5
   dashTimer: 1
   attackTimer: 1
-  HP: 900
+  HP: 7
   maxHP: 9
   food: 7
   cuteness: 5
   passiveCuteness: 5
   damage: 2
-  knockbackPower: 50
+  knockbackPower: 0
   emoting: 0
   clock: {fileID: 0}
   classclock: {fileID: 0}
+  catEyeUpgrade: 0
+  catRubUpgrade: 0
 --- !u!61 &6020713550126522987
 BoxCollider2D:
   m_ObjectHideFlags: 0

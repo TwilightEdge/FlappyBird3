@@ -12,7 +12,8 @@ public class human : MonoBehaviour
     public int foodCount;
     public int food;
     public int foodTimer; //each food timer seconds the foodcount goes down
-    public int cutenessReq; // cuteness req for getting the food
+    public int cutenessReq;
+    public int cutenessReqPassive;// cuteness req for getting the food
     public int cutenessIncrease;
 
     private float timeSinceLastfeed = 0;
@@ -51,6 +52,8 @@ public class human : MonoBehaviour
         clock = GameObject.FindWithTag("clock");
         
         classclock = clock.GetComponent<clock>();
+        
+        cutenessReqPassive = cutenessReq;
     }
 
     // Update is called once per frame
@@ -91,7 +94,7 @@ public class human : MonoBehaviour
         
         
         
-        if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
+        if (classcat.catEyeUpgrade && classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.R) && playerIsInside && timeSinceLastEmote > emoteCD) // CAT EYE
         {
             classcat.catEyeAnimation();
             
@@ -124,8 +127,10 @@ public class human : MonoBehaviour
         
         
         
-        if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
+        if (classcat.catRubUpgrade && classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.T) && playerIsInside && timeSinceLastEmote > emoteCD) // RUB
         {
+            classcat.catRubAnimation();
+            
             timeSinceLastEmote = 0;
             
             if (rubCounter < rubMaxStacks)
@@ -209,5 +214,12 @@ public class human : MonoBehaviour
             foodCount--;
         }
     }
-    
+
+    public void CutenessReset()
+    {
+        
+        cutenessReq = cutenessReqPassive;
+        
+    }
+
 }
