@@ -56,6 +56,8 @@ public class human : MonoBehaviour
 
         if (classclock.isDay && foodCount > 0 && Input.GetKeyDown(KeyCode.E) && playerIsInside && timeSinceLastEmote > emoteCD) // MEW
         {
+            classcat.catMewAnimation();
+            
             timeSinceLastEmote = 0;
 
             if (mewCounter < mewMaxStacks)

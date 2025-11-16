@@ -269,6 +269,18 @@ public class cat : MonoBehaviour
         
     }
 
+    public void catMewAnimation()
+    {
+        emoting = true;
+        
+        animator.SetTrigger("mew");
+        
+        //for 1 sec it does this and cant do anything else
+        
+        Invoke("StopEmoting", 1.2f);
+    }
+    
+
     void Movement()
     {
         

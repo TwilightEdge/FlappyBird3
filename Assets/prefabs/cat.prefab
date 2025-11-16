@@ -139,7 +139,7 @@ MonoBehaviour:
   attackTimer: 1
   HP: 900
   maxHP: 9
-  food: 0
+  food: 7
   cuteness: 5
   passiveCuteness: 5
   damage: 2
