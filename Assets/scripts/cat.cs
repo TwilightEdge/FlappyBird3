@@ -259,6 +259,10 @@ public class cat : MonoBehaviour
         if (HP <= 0)
         {
             classmenu.RestartMenu();
+            
+            gameObject.SetActive(false);
+            
+            //Destroy(gameObject);
         }
     }
 

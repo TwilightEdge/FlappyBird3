@@ -17,6 +17,7 @@ TagManager:
   - shop
   - exit
   - menu
+  - restartmenu
   layers:
   - Default
   - TransparentFX

@@ -22,6 +22,7 @@ public class baziMenu : MonoBehaviour
         
         classcat = cat.GetComponent<cat>();
         
+        //restartMenu= GameObject.FindWithTag("restartmenu");
     }
 
     void FixedUpdate()
