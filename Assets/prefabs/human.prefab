@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 238361748686721598}
   - component: {fileID: 6577971344640171450}
   - component: {fileID: 7955355124639048710}
+  - component: {fileID: 2171159838141964088}
   m_Layer: 0
   m_Name: human
   m_TagString: human
@@ -196,6 +197,28 @@ MonoBehaviour:
   emoteCD: 2
   clock: {fileID: 0}
   classclock: {fileID: 0}
+--- !u!95 &2171159838141964088
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3495787522279021045}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14adc128f3018b641ab61632beb07ac8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7488017375796737652
 GameObject:
   m_ObjectHideFlags: 0
