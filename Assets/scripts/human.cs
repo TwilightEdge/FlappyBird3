@@ -37,9 +37,13 @@ public class human : MonoBehaviour
     
     public clock classclock;
     
+    private Animator animator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
+        
         cat = GameObject.FindWithTag("Player");
         
         classcat = cat.GetComponent<cat>();
@@ -72,6 +76,8 @@ public class human : MonoBehaviour
 
             if (cutenessReq <= classcat.cuteness)
             { 
+                animator.SetTrigger("feed");
+                
                 foodCount--;
                 cutenessReq += cutenessIncrease;
                 classcat.getFood(food);
@@ -103,6 +109,8 @@ public class human : MonoBehaviour
 
             if (cutenessReq <= classcat.cuteness)
             { 
+                animator.SetTrigger("feed");
+                
                 foodCount--;
                 cutenessReq += cutenessIncrease;
                 classcat.getFood(food);
@@ -132,6 +140,8 @@ public class human : MonoBehaviour
 
             if (cutenessReq <= classcat.cuteness)
             { 
+                animator.SetTrigger("feed");
+                
                 foodCount--;
                 cutenessReq += cutenessIncrease;
                 classcat.getFood(food);
