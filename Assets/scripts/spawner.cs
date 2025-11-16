@@ -31,18 +31,18 @@ public class spawner : MonoBehaviour
 
     void Awake()
     {
+        enemyList = new List<GameObject>();
         
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
     }
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        enemyList = new List<GameObject>();
         
-        clock = GameObject.FindWithTag("clock");
-        
-        classclock = clock.GetComponent<clock>();
         
     }
 
