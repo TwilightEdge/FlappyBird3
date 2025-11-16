@@ -104,8 +104,8 @@ MonoBehaviour:
   isEve: 0
   isNight: 0
   timepassed: 0
-  dayDuration: 20
-  nightDuration: 3
+  dayDuration: 1
+  nightDuration: 300
   day: {fileID: 21300000, guid: 03624357712f50942a91331214cda46f, type: 3}
   eve: {fileID: 21300000, guid: da3c9c7a38c65a249b7fcd4bff77a29a, type: 3}
   night: {fileID: 21300000, guid: a3b1dea4b0f7339429e60b96d8dc6701, type: 3}
@@ -115,3 +115,4 @@ MonoBehaviour:
   allbg: []
   shop: {fileID: 0}
   classshop: {fileID: 0}
+  bin: {fileID: 7264360658729543531, guid: ef564d0f57b1fc642836cfcf01b65dd3, type: 3}

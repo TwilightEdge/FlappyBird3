@@ -35,6 +35,14 @@ public class clock : MonoBehaviour
     public GameObject shop;
     
     public shop classshop;
+    
+    
+    public GameObject bin;
+
+    private GameObject binSpawn1;
+    private GameObject binSpawn2;
+    private GameObject binSpawn3;
+    private GameObject binSpawn4;
 
     void Awake()
     {
@@ -90,6 +98,8 @@ public class clock : MonoBehaviour
         MakeHumansActive();
 
         MakeShopDeActive();
+
+        BinDeSpawn();
         
         spriteRenderer.sprite = day;
         
@@ -130,6 +140,8 @@ public class clock : MonoBehaviour
         classshop.CloseShop();
         
         MakeShopDeActive();
+
+        BinSpawn();
         
         timepassed = 0;
         isEve = false;
@@ -268,5 +280,32 @@ public class clock : MonoBehaviour
         
     }
     
+    
+    public void BinSpawn()
+    {
+        
+        binSpawn1 = Instantiate(bin);
+        binSpawn1.transform.position = new Vector3(-36f,-2.8f , 0.94f);
+        
+        binSpawn2 = Instantiate(bin);
+        binSpawn2.transform.position = new Vector3(3.5f,10f , 0.94f);
+        
+        binSpawn3 = Instantiate(bin);
+        binSpawn3.transform.position = new Vector3(3.7f,-37f , 0.94f);
+        
+        binSpawn4 = Instantiate(bin);
+        binSpawn4.transform.position = new Vector3(-4.5f, 57f , 0.94f);
+        
+    }
+    
+    public void BinDeSpawn()
+    {
+        Destroy(binSpawn1);
+        Destroy(binSpawn2);
+        Destroy(binSpawn3);
+        Destroy(binSpawn4);
+        
+        
+    }
 
 }
