@@ -14,7 +14,7 @@ public class shop : MonoBehaviour
 
     private int randomIndex = 0;
 
-    private int numberOfItemsShown = 3;
+    public int numberOfItemsShown = 3;
 
     private void Awake()
     {
@@ -63,6 +63,7 @@ public class shop : MonoBehaviour
     
     public void OpenShop()
     {
+        Debug.Log("OpenShop");
 
         if (numberOfItemsShown > powerupList.Count)
         {
@@ -71,7 +72,7 @@ public class shop : MonoBehaviour
         
         for (int i = 0; i < numberOfItemsShown; i++)
         {
-            
+            Debug.Log("creating power ups");
             powerupList[i].SetActive(true); 
             
             powerupList[i].transform.localPosition = new Vector2(i * 10f, 0);
