@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FinalGame.unity
-    guid: 3e4a70e12c614a74eae439e7a04b12f5
+    path: Assets/Scenes/mane menu.unity
+    guid: 7930d8dde710cfb46b36e9300d54099e
+  - enabled: 1
+    path: Assets/Scenes/background.unity
+    guid: 0b5ea1f4bb281e84287f74d7b0378185
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

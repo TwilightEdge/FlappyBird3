@@ -20,5 +20,9 @@ public class mainmenu : MonoBehaviour
     {
         SceneManager.LoadScene("background");
     }
-    
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
