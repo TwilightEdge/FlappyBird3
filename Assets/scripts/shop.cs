@@ -15,10 +15,18 @@ public class shop : MonoBehaviour
     private int randomIndex = 0;
 
     public int numberOfItemsShown = 3;
+    
+    public GameObject clock;
+    
+    public clock classclock;
 
     private void Awake()
     {
         powerupList = new List<GameObject>(GameObject.FindGameObjectsWithTag("powerup"));
+        
+        clock = GameObject.FindWithTag("clock");
+        
+        classclock = clock.GetComponent<clock>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -47,18 +55,20 @@ public class shop : MonoBehaviour
 
     public void CloseShop()
     {
-
-        foreach (GameObject obj in powerupList)
+        if (classclock.isNight)
         {
-            // IMPORTANT: Check if the object is null (destroyed) before accessing it
-            if (obj != null)
+
+            foreach (GameObject obj in powerupList)
             {
-                // The line you asked for: sets the active state to false
-                obj.SetActive(false); 
+                // IMPORTANT: Check if the object is null (destroyed) before accessing it
+                if (obj != null)
+                {
+                    // The line you asked for: sets the active state to false
+                    obj.SetActive(false);
+                }
             }
+
         }
-
-
     }
     
     public void OpenShop()
