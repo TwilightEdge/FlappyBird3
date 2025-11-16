@@ -45,6 +45,8 @@ public class cuteup : powerup
     public override void ApplyEffect()
     {
         classcat.passiveCuteness += cuteUp;
+        
+        classcat.cuteness += cuteUp;
 
     }
     

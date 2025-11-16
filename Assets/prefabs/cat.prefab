@@ -149,6 +149,8 @@ MonoBehaviour:
   classclock: {fileID: 0}
   catEyeUpgrade: 0
   catRubUpgrade: 0
+  baziMenu: {fileID: 0}
+  classmenu: {fileID: 0}
 --- !u!61 &6020713550126522987
 BoxCollider2D:
   m_ObjectHideFlags: 0
