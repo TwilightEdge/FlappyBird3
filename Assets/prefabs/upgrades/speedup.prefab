@@ -182,7 +182,7 @@ MonoBehaviour:
   classshop: {fileID: 0}
   price: 10
   playerIsTouching: 0
-  speedUp: 0
+  speedUp: 0.03
 --- !u!1 &5572167454799922700
 GameObject:
   m_ObjectHideFlags: 0

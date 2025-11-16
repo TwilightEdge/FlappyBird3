@@ -184,7 +184,7 @@ MonoBehaviour:
   dashCD: 3
   attackCD: 2
   damage: 1
-  enemySpeed: 6
+  enemySpeed: 5.5
   enemyFleeSpeed: 11
   enemyDashForce: 70
   isDashing: 0
