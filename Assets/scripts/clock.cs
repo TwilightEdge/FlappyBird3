@@ -48,6 +48,8 @@ public class clock : MonoBehaviour
     
     public GameObject human;
 
+    public bool exited;
+
     void Awake()
     {
         shop = GameObject.FindWithTag("shop");
@@ -154,6 +156,8 @@ public class clock : MonoBehaviour
 
         BinSpawn();
         
+        exited = false;
+        
         timepassed = 0;
         isEve = false;
         isNight = true;
@@ -183,7 +187,7 @@ public class clock : MonoBehaviour
     {
         if (isEve)
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (exited)
             {
                 StartNight();
             }
@@ -333,6 +337,13 @@ public class clock : MonoBehaviour
         
         
         
+    }
+
+    public void Exit()
+    {
+
+        exited = true;
+
     }
 
 }

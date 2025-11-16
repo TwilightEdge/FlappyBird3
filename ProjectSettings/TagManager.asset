@@ -15,6 +15,7 @@ TagManager:
   - bg
   - powerup
   - shop
+  - exit
   layers:
   - Default
   - TransparentFX

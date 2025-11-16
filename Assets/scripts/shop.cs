@@ -87,7 +87,7 @@ public class shop : MonoBehaviour
             Debug.Log("creating power ups");
             powerupList[i].SetActive(true); 
             
-            powerupList[i].transform.localPosition = new Vector2(i * 10f, 0);
+            powerupList[i].transform.localPosition = new Vector3(i * 10f, 0, 0.99f);
             
         }
 
